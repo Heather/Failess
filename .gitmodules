@@ -1,0 +1,3 @@
+[submodule "FAKE"]
+	path = FAKE
+	url = git@github.com:Cynede/FAKE.git
