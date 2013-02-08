@@ -29,7 +29,6 @@ let containsParam param = Seq.map toLower >> Seq.exists ((=) (toLower param))
       
 let buildScripts = !! "*.fsx" |> Seq.toList
 
-//Because I don't like colors on FakeLib
 let CcolorMap = function
     | ImportantMessage _ -> ConsoleColor.Blue
     | ErrorMessage _     -> ConsoleColor.Red

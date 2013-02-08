@@ -1,13 +1,14 @@
 ﻿module CommandlineParams
 
 open Fake
+open Heather.Syntax
 
 let printAllParams() = printfn "Failess.exe [buildScript] [Target] Variable1=Value1 Variable2=Value2 ... "
 let parseArgs cmdArgs =
     let splitter = [|'='|]
     cmdArgs 
         |> Seq.skip 1
-        |> Seq.mapi (fun (i:int) (arg:string) ->
+        |> Seq.mapi /> fun (i:int) (arg:string) ->
                 if arg.Contains "=" then
                     let s = arg.Split splitter
                     if s.[0] = "logfile" then
@@ -17,5 +18,5 @@ let parseArgs cmdArgs =
                     if i = 0 then
                         "Target", arg
                     else
-                        arg, "")
+                        arg, ""
         |> Seq.toList
