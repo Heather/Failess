@@ -24,5 +24,9 @@ cp %ABS_PATH%\src\bin\Release\Heather.dll "Heather.dll"
 popd
 
 %MSBuild% src\app\Failess\Failess.fsproj /p:Configuration=Release
+
+cp "FAKE\lib\fsi\FSharp.Core.optdata" "build\FSharp.Core.optdata"
+cp "FAKE\lib\fsi\FSharp.Core.sigdata" "build\FSharp.Core.sigdata"
+
 echo build done
 pause

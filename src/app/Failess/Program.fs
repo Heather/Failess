@@ -1,15 +1,10 @@
 ﻿open System
 open Fake
+open Failess
 open System.IO
-
-let printVersion() =
-    traceFAKE "Failess Version: 0.0.1"
-    traceFAKE "Failess Path: %s" fakePath
-    traceFAKE "FakeLib Version: %s" fakeVersionStr
 
 let printEnvironment cmdArgs args =
     printVersion()
-
     if buildServer = LocalBuild then
         trace localBuildLabel
     else
@@ -24,23 +19,11 @@ let printEnvironment cmdArgs args =
     log ""
     traceFAKE "FSI-Path: %s" fsiPath
     traceFAKE "MSBuild-Path: %s" msBuildExe
-
-let containsParam param = Seq.map toLower >> Seq.exists ((=) (toLower param))
-      
+let containsParam param = Seq.map toLower >> Seq.exists ((=) (toLower param))  
 let buildScripts = !! "*.fsx" |> Seq.toList
 
-let CcolorMap = function
-    | ImportantMessage _ -> ConsoleColor.Blue
-    | ErrorMessage _     -> ConsoleColor.Red
-    | LogMessage _       -> ConsoleColor.DarkGray
-    | TraceMessage _     -> ConsoleColor.DarkBlue
-    | FinishedMessage    -> ConsoleColor.Black
-    | _                  -> ConsoleColor.DarkGray
-
-let CConsoleTraceListener = ConsoleTraceListener(buildServer <> CCNet,CcolorMap)
-listeners.[0] <- CConsoleTraceListener
-
 try
+    FakeInit()
     try            
         AutoCloseXmlWriter <- true            
         let cmdArgs = System.Environment.GetCommandLineArgs()                

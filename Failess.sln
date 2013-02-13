@@ -7,6 +7,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FakeLib", "FAKE\src\app\Fak
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Heather", "Heather\src\Heather.fsproj", "{F7C71087-B027-4F54-8E3D-1B1A4B4A944F}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FailessLib", "src\app\FailessLib\FailessLib.fsproj", "{E206A7D6-5E9B-496C-A661-CD4EF23A7A01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,16 @@ Global
 		{F7C71087-B027-4F54-8E3D-1B1A4B4A944F}.Release|Mixed Platforms.Build.0 = Release|x86
 		{F7C71087-B027-4F54-8E3D-1B1A4B4A944F}.Release|x86.ActiveCfg = Release|x86
 		{F7C71087-B027-4F54-8E3D-1B1A4B4A944F}.Release|x86.Build.0 = Release|x86
+		{E206A7D6-5E9B-496C-A661-CD4EF23A7A01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E206A7D6-5E9B-496C-A661-CD4EF23A7A01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E206A7D6-5E9B-496C-A661-CD4EF23A7A01}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E206A7D6-5E9B-496C-A661-CD4EF23A7A01}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E206A7D6-5E9B-496C-A661-CD4EF23A7A01}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E206A7D6-5E9B-496C-A661-CD4EF23A7A01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E206A7D6-5E9B-496C-A661-CD4EF23A7A01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E206A7D6-5E9B-496C-A661-CD4EF23A7A01}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E206A7D6-5E9B-496C-A661-CD4EF23A7A01}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E206A7D6-5E9B-496C-A661-CD4EF23A7A01}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
