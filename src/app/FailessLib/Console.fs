@@ -1,4 +1,5 @@
-﻿module Failess
+﻿[<AutoOpen>]
+module Failess.Console
 
 open System
 open Fake

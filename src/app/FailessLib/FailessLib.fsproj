@@ -32,6 +32,10 @@
     <DocumentationFile>bin\Release\FailessLib.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FakeLib">
+      <HintPath>..\..\..\FAKE\build\FakeLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core" />
     <Reference Include="System" />
@@ -39,14 +43,8 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Failess.fs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\FAKE\src\app\FakeLib\FakeLib.fsproj">
-      <Name>FakeLib</Name>
-      <Project>{13d56521-772a-41db-9772-1da1a4aa8e3a}</Project>
-      <Private>True</Private>
-    </ProjectReference>
+    <Compile Include="Core.fs" />
+    <Compile Include="Console.fs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\FSharp\1.0\Microsoft.FSharp.Targets" Condition="!Exists('$(MSBuildBinPath)\Microsoft.Build.Tasks.v4.0.dll')" />
   <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft F#\v4.0\Microsoft.FSharp.Targets" Condition=" Exists('$(MSBuildBinPath)\Microsoft.Build.Tasks.v4.0.dll')" />

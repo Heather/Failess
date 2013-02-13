@@ -1,7 +1,28 @@
 ﻿open System
+open System.IO
+
 open Fake
 open Failess
-open System.IO
+
+module CommandlineParams =
+    open Heather.Syntax
+    let printAllParams() = printfn "Failess.exe [buildScript] [Target] Variable1=Value1 Variable2=Value2 ... "
+    let parseArgs cmdArgs =
+        let splitter = [|'='|]
+        cmdArgs 
+            |> Seq.skip 1
+            |> Seq.mapi /> fun (i:int) (arg:string) ->
+                    if arg.Contains "=" then
+                        let s = arg.Split splitter
+                        if s.[0] = "logfile" then
+                            addXmlListener s.[1]
+                        s.[0], s.[1]
+                    else
+                        if i = 0 then
+                            "Target", arg
+                        else
+                            arg, ""
+            |> Seq.toList
 
 let printEnvironment cmdArgs args =
     printVersion()
@@ -9,9 +30,8 @@ let printEnvironment cmdArgs args =
         trace localBuildLabel
     else
         tracefn "Build-Version: %s" buildVersion
-
     if cmdArgs |> Array.length > 1 then
-        traceFAKE "FAKE Arguments:"
+        traceFAKE "Failess Arguments:"
         args 
           |> Seq.map fst
           |> Seq.iter (tracefn "%A")
@@ -27,23 +47,17 @@ try
     try            
         AutoCloseXmlWriter <- true            
         let cmdArgs = System.Environment.GetCommandLineArgs()                
-        
         if containsParam "version" cmdArgs then printVersion() else
-        
         if (cmdArgs.Length = 2 && cmdArgs.[1].ToLower() = "help") || (cmdArgs.Length = 1 && List.length buildScripts = 0) then CommandlineParams.printAllParams() else
-        
         let buildScriptArg = if cmdArgs.Length > 1 && cmdArgs.[1].EndsWith ".fsx" then cmdArgs.[1] else Seq.head buildScripts
-        
         let args = CommandlineParams.parseArgs (cmdArgs |> Seq.filter ((<>) buildScriptArg) |> Seq.filter ((<>) "details"))
 
         traceStartBuild()
 
-        let printDetails = containsParam "details" cmdArgs
-                
+        let printDetails = true // containsParam "details" cmdArgs      
         if printDetails then 
             printEnvironment cmdArgs args
-
-        if not (runBuildScript printDetails buildScriptArg args) then
+        if not (runBuildScript_ss printDetails buildScriptArg args) then
             Environment.ExitCode <- 1
         else
             if printDetails then log "Ready."
@@ -61,6 +75,5 @@ try
     if buildServer = BuildServer.TeamCity then
         killFSI()
         killMSBuild()
-
 finally
     traceEndBuild()
