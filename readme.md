@@ -89,11 +89,16 @@ Target "Build" (fun () ->
             margin ---- [px 12; px 8; px 8; px 8];
             minHeight -- px 420;
             ]
+        (^)"leftCol"-|[
+            padding ---- [px 6; px 12];
+            margin ---- [px 12; px 8; px 8; px 8];
+            width -- px 200
+            minHeight -- px 200
+            ]
         ]
     )
 
 "Build"
 
 RunParameterTargetOrDefault "target" "Build"
-
 ```

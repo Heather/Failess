@@ -31,7 +31,7 @@ let fontWeight = "font-weight"
 
 let textDecoration = "text-decoration"
 
-let manHeight = "max-height"
+let maxHeight = "max-height"
 let minHeight = "min-height"
 
 // Some defenitions here are not anyhow standard but I don't care YET
