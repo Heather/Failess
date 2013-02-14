@@ -4,11 +4,13 @@ Failess
 ``` fsharp
 #r @"FakeLib.dll"
 #r @"FailessLib.dll"
+#r @"Heather.dll"
 
 open Fake
 open Failess
+open Heather.Syntax
 
-Target "Build" (fun () -> 
+Target "Build" /> fun () -> 
     trace " --- Building CSS --- "
     pasteNewLine <- false
     CSS [
@@ -37,7 +39,7 @@ Target "Build" (fun () ->
         [h1; h2; h3; h4; h5; h6]=|[
             fontSize -- em 1.5
             color -- "#666666"
-            fontVariant -- FontVariant.smallCaps
+            FontVariant.SmallCaps
             ]
         h1-|[
             fontSize -- em 1.6
@@ -108,6 +110,7 @@ Target "Build" (fun () ->
                 backgroundColor -- "#3a4f63"
                 width -- prc 100
                 ]
+            (^)"accountInfo"-|[ width -- prc 42 ]
             (^)menu * [
                 (@)[padding ---- pxx [4; 0; 4; 8]]
                 (+)ul * [
@@ -155,10 +158,51 @@ Target "Build" (fun () ->
                 display -- Display.block
                 ]
             ]
+        "legend"-|[
+            fontSize -- em 1.1
+            fontWeight -- 600
+            padding ---- pxx [2; 4; 8; 4]
+            ]
+        input * [
+            (^)"textEntry "-|[
+                width -- px 320
+                border ---- [px 1; s Border.solid; "#ccc"]
+                ]
+            (^)"passwordEntry"-|[
+                width -- px 320
+                border ---- [px 1; s Border.solid; "#ccc"]
+                ]
+            ]
+        "/* MISC\n----------------------------------------------------------*/"
+        (^)clear-|[clear -- Clear.both]
+        (^)title-|[
+            display -- Display.block
+            Float.Left
+            ]
+        (^)"loginDisplay" * [
+            (@) [
+                fontSize -- em 1.1
+                Display.Block
+                TextAlign.Right
+                padding -- px 10
+                Color.White
+                ]
+            (+)a * [
+                (%)link-|[ Color.White ]
+                (%)visited-|[ Color.White ]
+                (%)"hover"-|[ Color.White ]
+                ]
+            ]
+        (^)"failureNotification" -|[
+            fontSize -- em 1.2
+            Color.Red
+            ]
+        (^)"bold"-|[FontWeight.Bold]
+        (^)"submitButton"-|[
+            TextAlign.Right
+            paddingRight -- px 10
+            ]
         ]
-    )
 
-"Build"
-
-RunParameterTargetOrDefault "target" "Build"
+"Build"; RunParameterTargetOrDefault "target" "Build"
 ```

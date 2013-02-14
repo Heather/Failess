@@ -4,6 +4,9 @@ module Failess.CSSTypes
 open System
 open System.ComponentModel
 
+type Clear =
+    | both = 0
+
 type TextDecoration =
     | none = 0
 
@@ -12,10 +15,6 @@ type TextAlign =
 
 type WhiteSpace =
     | nowrap = 0
-
-[<TypeConverter(typedefof<EnumToStringUsingDescription>)>]
-type FontVariant =
-    | [<Description("small-caps")>] smallCaps = 0
 
 type Border =
     | solid = 0
@@ -29,7 +28,5 @@ type LineHeight =
 type ListStyle =
     | none = 0
 
-[<TypeConverter(typedefof<EnumToStringUsingDescription>)>]
 type Display =
     | block = 0
-    | [<Description("inline")>] Inline = 1
