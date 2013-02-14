@@ -31,6 +31,13 @@ let fontWeight = "font-weight"
 
 let textDecoration = "text-decoration"
 
+let manHeight = "max-height"
+let minHeight = "min-height"
+
+// Some defenitions here are not anyhow standard but I don't care YET
+// Later they will be optional.
+
+let main = "main"
 let page = "page"
 let header = "header"
 

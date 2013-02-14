@@ -15,7 +15,7 @@ Target "Build" (fun () ->
         "/* DEFAULTS\n----------------------------------------------------------*/"
         body-|[
             background -- "#b6b7bc";
-            fontSize -- ".80em";
+            fontSize -- em 0.80;
             fontFamily --- 
                 ["Helvetica Neue"; "Lucida Grande"; 
                 "Segoe UI"; "Arial"; "Helvetica"; "Verdana"; "sans-serif";] 
@@ -83,6 +83,11 @@ Target "Build" (fun () ->
             (+)h1-|[
                 fontWeight -- 700
                 ]
+            ]
+        (^)main-|[
+            padding ---- [px 0; px 12];
+            margin ---- [px 12; px 8; px 8; px 8];
+            minHeight -- px 420;
             ]
         ]
     )
