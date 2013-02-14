@@ -45,7 +45,10 @@
   <ItemGroup>
     <Compile Include="Core.fs" />
     <Compile Include="Console.fs" />
-    <Compile Include="CSS.fs" />
+    <Compile Include="CSSCore.fs" />
+    <Compile Include="CSSStrings.fs" />
+    <Compile Include="CSSTypes.fs" />
+    <Compile Include="CSSValues.fs" />
     <Compile Include="CSSHelper.fs" />
   </ItemGroup>
   <ItemGroup>

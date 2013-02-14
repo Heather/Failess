@@ -6,8 +6,6 @@ open Heather.Syntax
 
 let tab = "    "
 
-let (+++) a b = sprintf "%s%s" a b
-
 let (-|) el st =
     match st with
     | [] -> ""
@@ -35,6 +33,11 @@ let (--) el st =
     sprintf "%s: %s;"
     <| el 
     <| st.ToString()
+
+let (---) el st =
+    sprintf "%s: %s;"
+    <| el 
+    <| String.Join(", ", (st : string list))
 
 let (<%>) el p =
     sprintf "%s:%s" el p

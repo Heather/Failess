@@ -9,6 +9,9 @@ Target "Build" (fun () ->
             body-|[
                 background -- "#b6b7bc";
                 fontSize -- ".80em";
+                fontFamily --- 
+                    ["Helvetica Neue"; "Lucida Grande"; 
+                    "Segoe UI"; "Arial"; "Helvetica"; "Verdana"; "sans-serif";] 
                 ];
             a * [
                 (%)visited <+> (%)link-|[
@@ -18,6 +21,10 @@ Target "Build" (fun () ->
                     color -- "#1d60ff";
                     textDecoration -- TextDecoration.none;
                     ];
+                ];
+            p -|[
+                marginBottom -- px 10
+                lineHeight -- em 1.6
                 ]
             ]
     with | _ as exc ->
