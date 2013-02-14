@@ -51,6 +51,27 @@ Target "Build" (fun () ->
             [h5; h6]=|[
                 fontSize -- em 1.0;
                 ]
+            "/* this rule styles <h1> and <h2> tags that are the \n first child of the left and right table columns */"
+            [   (^)"rightColumn"    <>> h1;
+                (^)"rightColumn"    <>> h2;
+                (^)"leftColumn"     <>> h1;
+                (^)"leftColumn"     <>> h2]=|[
+                marginTop -- px 0
+                ]
+            "/* PRIMARY LAYOUT ELEMENTS\n----------------------------------------------------------*/"
+            (^)page-|[
+                width -- px 960;
+                backgroundColor -- "#fff";
+                margin ----
+                    [   px 20;
+                        auto;
+                        px 0;
+                        auto ]
+                border ----
+                    [   px 1;
+                        s Border.solid;
+                        "#496077" ]
+                ]
             ]
     with | _ as exc ->
         trace (" --- Failed to build: " + exc.Message)

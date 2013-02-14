@@ -10,3 +10,6 @@ type TextDecoration =
 [<TypeConverter(typedefof<EnumToStringUsingDescription>)>]
 type FontVariant =
     | [<Description("small-caps")>] smallCaps = 0
+
+type Border =
+    | solid = 0

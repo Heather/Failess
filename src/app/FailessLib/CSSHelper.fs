@@ -39,6 +39,11 @@ let (---) el st =
     <| el 
     <| String.Join(", ", (st : string list))
 
+let (----) el st =
+    sprintf "%s: %s;"
+    <| el 
+    <| String.Join(" ", (st : string list))
+
 let (<%>) el p =
     sprintf "%s:%s" el p
 let (%) a = sprintf ":%s" a
@@ -64,9 +69,9 @@ let (<<>) a b = sprintf "%s < %s" a b
 
 let CSS triller =
     let css =   triller
-                |> Seq.map /> fun s -> 
+                |> Seq.map /> fun str -> 
                     sprintf "%s%s"
                     <| System.Environment.NewLine
-                    <| s.ToString()
+                    <| s str
     System.IO.File.WriteAllLines(
         "stie.css", css);
