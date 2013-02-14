@@ -85,15 +85,22 @@ Target "Build" (fun () ->
                 ]
             ]
         (^)main-|[
-            padding ---- [px 0; px 12];
-            margin ---- [px 12; px 8; px 8; px 8];
+            padding ---- pxx [0; 12];
+            margin ---- pxx [12; 8; 8; 8];
             minHeight -- px 420;
             ]
         (^)"leftCol"-|[
-            padding ---- [px 6; px 12];
-            margin ---- [px 12; px 8; px 8; px 8];
-            width -- px 200
-            minHeight -- px 200
+            padding ---- pxx [ 6; 12];
+            margin ---- pxx [12; 8; 8; 8];
+            width -- px 200;
+            minHeight -- px 200;
+            ]
+        (^)footer-|[
+            color -- "#4e5766";
+            padding ---- pxx [8; 0; 0; 0]
+            margin ---- [px 0; auto]
+            textAlign -- TextAlign.center
+            lineHeight -- LineHeight.normal
             ]
         ]
     )

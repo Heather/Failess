@@ -28,6 +28,7 @@ let fontSize = "font-size"
 let fontFamily = "font-family"
 let fontVariant = "font-variant"
 let fontWeight = "font-weight"
+let textAlign = "text-align"
 
 let textDecoration = "text-decoration"
 
@@ -40,6 +41,7 @@ let minHeight = "min-height"
 let main = "main"
 let page = "page"
 let header = "header"
+let footer = "footer"
 
 let active = "active"
 let hover = "hover"

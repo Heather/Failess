@@ -7,6 +7,9 @@ open System.ComponentModel
 type TextDecoration =
     | none = 0
 
+type TextAlign =
+    | center = 0
+
 [<TypeConverter(typedefof<EnumToStringUsingDescription>)>]
 type FontVariant =
     | [<Description("small-caps")>] smallCaps = 0
@@ -16,3 +19,6 @@ type Border =
 
 type Position =
     | relative = 0
+
+type LineHeight =
+    | normal = 0
