@@ -142,6 +142,19 @@ Target "Build" (fun () ->
                     ]
                 ]
             ]
+        "/* FORM ELEMENTS\n----------------------------------------------------------*/"
+        "fieldset" * [
+            (@) [
+                margin ---- [em 1.0; px 0]
+                padding -- em 1.0
+                border ---- [px 1; s Border.solid; "#ccc"]
+                ]
+            (+)p-|[ margin ---- pxx [2; 12; 10; 10] ]
+            (^)"login"<^>"inline"-|[display -- Display.Inline]
+            (^)"login" ++ label <+> (^)"register" ++ label <+> (^)"changePassword" ++ label-|[
+                display -- Display.block
+                ]
+            ]
         ]
     )
 

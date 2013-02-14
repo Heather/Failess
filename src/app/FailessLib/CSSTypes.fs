@@ -29,5 +29,7 @@ type LineHeight =
 type ListStyle =
     | none = 0
 
+[<TypeConverter(typedefof<EnumToStringUsingDescription>)>]
 type Display =
     | block = 0
+    | [<Description("inline")>] Inline = 1

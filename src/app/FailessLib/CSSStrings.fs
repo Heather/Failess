@@ -54,6 +54,7 @@ let main = "main"
 let page = "page"
 let header = "header"
 let footer = "footer"
+let label = "label"
 
 let active = "active"
 let hover = "hover"
