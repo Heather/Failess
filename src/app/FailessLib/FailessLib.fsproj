@@ -46,10 +46,10 @@
     <Compile Include="Failess.fs" />
     <Compile Include="CSSCore.fs" />
     <Compile Include="CSSStrings.fs" />
-    <Compile Include="CSSModules.fs" />
     <Compile Include="CSSTypes.fs" />
     <Compile Include="CSSValues.fs" />
     <Compile Include="CSSHelper.fs" />
+    <Compile Include="CSSModules.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Heather\src\Heather.fsproj">

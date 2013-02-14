@@ -72,8 +72,7 @@ Target "Build" /> fun () ->
             backgroundColor -- "#fff"
             margin ----
                 [ px 20; auto; px 0; auto ]
-            border ----
-                [ px 1; s Border.solid; "#496077" ]
+            Border.Set <| px 1 <| Border.solid <| "#496077"
             ]
         (^)header * [
             (@)[position -- Position.relative
@@ -122,7 +121,7 @@ Target "Build" /> fun () ->
                        ]
                     (+)li ++ a <-> div<^>menu ++ ul ++ li ++ a<%>visited -|[
                         backgroundColor -- "#465c71"
-                        border ---- [px 1; "#4e667d"; s Border.solid]
+                        Border.Set <| px 1 <| Border.solid <| "#4e667d"
                         color -- "#dde4ec"
                         display -- Display.block
                         lineHeight -- em 1.35
@@ -150,7 +149,7 @@ Target "Build" /> fun () ->
             (@) [
                 margin ---- [em 1.0; px 0]
                 padding -- em 1.0
-                border ---- [px 1; s Border.solid; "#ccc"]
+                Border.Set <| px 1 <| Border.solid <| "#ccc"
                 ]
             (+)p-|[ margin ---- pxx [2; 12; 10; 10] ]
             (^)"login"<^>"inline"-|[display -- Display.Inline]
@@ -166,11 +165,11 @@ Target "Build" /> fun () ->
         input * [
             (^)"textEntry "-|[
                 width -- px 320
-                border ---- [px 1; s Border.solid; "#ccc"]
+                Border.Set <| px 1 <| Border.solid <| "#ccc"
                 ]
             (^)"passwordEntry"-|[
                 width -- px 320
-                border ---- [px 1; s Border.solid; "#ccc"]
+                Border.Set <| px 1 <| Border.solid <| "#ccc"
                 ]
             ]
         "/* MISC\n----------------------------------------------------------*/"

@@ -12,6 +12,11 @@ type TextDecoration =
 
 type TextAlign =
     | center = 0
+    | left = 0
+    | right = 0
+
+type FontWeight =
+    | bold = 0
 
 type WhiteSpace =
     | nowrap = 0
