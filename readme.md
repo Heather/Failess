@@ -26,6 +26,11 @@ Target "Build" (fun () ->
                 marginBottom -- px 10
                 lineHeight -- em 1.6
                 ]
+            [h1; h2; h3; h4; h5; h6]=|[
+                fontSize -- em 1.5;
+                color -- "#666666";
+                fontVariant -- FontVariant.smallCaps;
+                ]
             ]
     with | _ as exc ->
         trace (" --- Failed to build: " + exc.Message)
