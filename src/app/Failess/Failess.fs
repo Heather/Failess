@@ -3,9 +3,9 @@ open System.IO
 
 open Fake
 open Failess
+open Heather
 
 module CommandlineParams =
-    open Heather.Syntax
     let printAllParams() = printfn "Failess.exe [buildScript] [Target] Variable1=Value1 Variable2=Value2 ... "
     let parseArgs cmdArgs =
         let splitter = [|'='|]

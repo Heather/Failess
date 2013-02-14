@@ -3,8 +3,7 @@ module Failess.CSS
 
 open System
 open System.Text.RegularExpressions
-
-open Heather.Syntax
+open Heather
 
 let tab = "    "
 

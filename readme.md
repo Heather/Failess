@@ -8,7 +8,7 @@ Failess
 
 open Fake
 open Failess
-open Heather.Syntax
+open Heather
 
 Target "Build" /> fun () -> 
     trace " --- Building CSS --- "
