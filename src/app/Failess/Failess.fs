@@ -57,7 +57,7 @@ try
         let printDetails = true // containsParam "details" cmdArgs      
         if printDetails then 
             printEnvironment cmdArgs args
-        if not (runBuildScript_ss printDetails buildScriptArg args) then
+        if not (runBuildScript printDetails buildScriptArg args) then
             Environment.ExitCode <- 1
         else
             if printDetails then log "Ready."

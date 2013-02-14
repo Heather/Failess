@@ -70,8 +70,10 @@ let (<<>) a b = sprintf "%s < %s" a b
 let CSS triller =
     let css =   triller
                 |> Seq.map /> fun str -> 
-                    sprintf "%s%s"
-                    <| System.Environment.NewLine
-                    <| s str
+                    match pasteNewLine with
+                    | false ->  s str
+                    | true ->   sprintf "%s%s"
+                                <| System.Environment.NewLine
+                                <| s str
     System.IO.File.WriteAllLines(
         "stie.css", css);

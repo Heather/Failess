@@ -43,8 +43,7 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core.fs" />
-    <Compile Include="Console.fs" />
+    <Compile Include="Failess.fs" />
     <Compile Include="CSSCore.fs" />
     <Compile Include="CSSStrings.fs" />
     <Compile Include="CSSTypes.fs" />

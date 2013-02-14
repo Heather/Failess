@@ -14,9 +14,11 @@ let width = "width"
 let height = "height"
 let border = "border"
 
+let position = "position"
 let margin = "margin"
 let marginTop = "margin-top"
 let marginBottom = "margin-bottom"
+let padding = "padding"
 let paddingBottom = "padding-bottom"
 let auto = "auto"
 

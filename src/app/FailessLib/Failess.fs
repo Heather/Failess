@@ -20,3 +20,5 @@ let printVersion() =
     traceFAKE "Failess Version: 0.0.1"
     traceFAKE "Failess Path: %s" fakePath
     traceFAKE "FakeLib Version: %s" fakeVersionStr
+
+let mutable pasteNewLine = false

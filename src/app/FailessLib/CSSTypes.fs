@@ -13,3 +13,6 @@ type FontVariant =
 
 type Border =
     | solid = 0
+
+type Position =
+    | relative = 0

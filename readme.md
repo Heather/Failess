@@ -2,8 +2,15 @@ Failess
 =======
 
 ``` fsharp
+#r @"FakeLib.dll"
+#r @"FailessLib.dll"
+
+open Fake
+open Failess
+
 Target "Build" (fun () -> 
-    trace " --- Building Failess --- "
+    trace " --- Building CSS --- "
+    pasteNewLine <- false
     try
         CSS [
             "/* DEFAULTS\n----------------------------------------------------------*/"
@@ -63,17 +70,24 @@ Target "Build" (fun () ->
                 width -- px 960;
                 backgroundColor -- "#fff";
                 margin ----
-                    [   px 20;
-                        auto;
-                        px 0;
-                        auto ]
+                    [ px 20; auto; px 0; auto ]
                 border ----
-                    [   px 1;
-                        s Border.solid;
-                        "#496077" ]
+                    [ px 1; s Border.solid; "#496077" ]
+                ]
+            (^)header-|[
+                position -- Position.relative
+                margin -- px 0
+                padding -- px 0
+                background -- "#4b6c9e"
+                width -- prc 100
                 ]
             ]
     with | _ as exc ->
         trace (" --- Failed to build: " + exc.Message)
     )
+
+"Build"
+
+RunParameterTargetOrDefault "target" "Build"
+
 ```
