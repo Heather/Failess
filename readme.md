@@ -102,6 +102,24 @@ Target "Build" (fun () ->
             textAlign -- TextAlign.center
             lineHeight -- LineHeight.normal
             ]
+        "/* TAB MENU\n----------------------------------------------------------*/"
+        div * [
+            (^)"hideSkiplink"-|[
+                backgroundColor -- "#3a4f63";
+                width -- prc 100
+                ]
+            (^)menu * [
+                (@)[padding ---- pxx [4; 0; 4; 8]];
+                (+)ul * [
+                    (@)[
+                       listStyle -- ListStyle.none
+                       margin -- px 0;
+                       padding -- px 0;
+                       width -- auto;
+                       ];
+                    ];
+                ]
+            ]
         ]
     )
 

@@ -22,3 +22,6 @@ type Position =
 
 type LineHeight =
     | normal = 0
+
+type ListStyle =
+    | none = 0

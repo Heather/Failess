@@ -2,6 +2,8 @@
 module Failess.CSS
 
 open System
+open System.Text.RegularExpressions
+
 open Heather.Syntax
 
 let tab = "    "
@@ -58,14 +60,21 @@ let (+) a = sprintf " %s" a
 
 let (<+>) a b = sprintf "%s+%s" a b
 let (*) el els =
+    let tree str = 
+        let lines =
+            [for line in Regex.Split(str, "\r\n") ->
+                match line with 
+                | line when line.StartsWith(tab) -> line
+                | _ -> el ++ line]
+        String.Join(System.Environment.NewLine, lines)
     let fall = [for e : string in els ->
                     match e with
                     | e when e.Contains("+") -> 
                         let ells = e.Split('+')
                         String.Join(", ",
                             [for ell in ells ->
-                                el +++ ell])
-                    | _ -> el +++ e]
+                                tree ell])
+                    | _ -> tree e]
     String.Join(System.Environment.NewLine, fall)
 
 let (<>>) a b = sprintf "%s > %s" a b

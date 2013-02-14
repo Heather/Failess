@@ -4,8 +4,14 @@ module Failess.CSSStrings
 let h1, h2, h3, h4, h5, h6 = "h1", "h2", "h3", "h4", "h5", "h6"
 
 let body = "body"
+let div = "div"
+let hr = "hr"
+let br = "br"
 let a = "a"
 let p = "p"
+let ul = "ul"
+let il = "il"
+let li = "li"
 
 let background = "background"
 let backgroundColor = "background-color"
@@ -24,6 +30,8 @@ let auto = "auto"
 
 let lineHeight = "line-height"
 
+let listStyle = "list-style"
+
 let fontSize = "font-size"
 let fontFamily = "font-family"
 let fontVariant = "font-variant"
@@ -38,6 +46,7 @@ let minHeight = "min-height"
 // Some defenitions here are not anyhow standard but I don't care YET
 // Later they will be optional.
 
+let menu = "menu"
 let main = "main"
 let page = "page"
 let header = "header"

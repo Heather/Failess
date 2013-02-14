@@ -26,5 +26,5 @@ type EnumToStringUsingDescription() =
         let name = value.ToString();
         let attrs = 
             value.GetType().GetField(name).GetCustomAttributes(typedefof<DescriptionAttribute>, false);
-        if (attrs.Length > 0) then attrs.[0]
-        else value
+        if (attrs.Length > 0) then (attrs.[0] :?> DescriptionAttribute).Description :> obj
+        else name :> obj
