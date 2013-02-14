@@ -11,12 +11,14 @@ let background = "background"
 let color = "color"
 
 let marginBottom = "margin-bottom"
+let paddingBottom = "padding-bottom"
 
 let lineHeight = "line-height"
 
 let fontSize = "font-size"
 let fontFamily = "font-family"
 let fontVariant = "font-variant"
+let fontWeight = "font-weight"
 
 let textDecoration = "text-decoration"
 
