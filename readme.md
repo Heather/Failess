@@ -11,13 +11,10 @@ Target "Build" (fun () ->
                 fontSize -- ".80em";
                 ];
             a * [
-                visited-|[
+                (%)visited <+> (%)link-|[
                     color -- "#034af3"
                     ];
-                link-|[
-                    color -- "#034af3"
-                    ];
-                hover-|[
+                (%)hover-|[
                     color -- "#1d60ff";
                     textDecoration -- TextDecoration.none;
                     ];

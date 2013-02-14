@@ -6,6 +6,8 @@ open Heather.Syntax
 
 let tab = "    "
 
+let (+++) a b = sprintf "%s%s" a b
+
 let (-|) el st =
     match st with
     | [] -> ""
@@ -34,11 +36,20 @@ let (--) el st =
     <| el 
     <| st.ToString()
 
-let (%) el p =
+let (<%>) el p =
     sprintf "%s:%s" el p
+let (%) a = sprintf ":%s" a
 
+let (<+>) a b = sprintf "%s+%s" a b
 let (*) el els =
-    let fall = [for e in els -> el % e]
+    let fall = [for e : string in els ->
+                    match e with
+                    | e when e.Contains("+") -> 
+                        let ells = e.Split('+')
+                        String.Join(", ",
+                            [for ell in ells ->
+                                el +++ ell])
+                    | _ -> el +++ e]
     String.Join(System.Environment.NewLine, fall)
 
 let CSS triller =
