@@ -43,6 +43,10 @@ let (<%>) el p =
     sprintf "%s:%s" el p
 let (%) a = sprintf ":%s" a
 
+let (<^>) el p =
+    sprintf "%s.%s" el p
+let (^) a = sprintf ".%s" a
+
 let (<+>) a b = sprintf "%s+%s" a b
 let (*) el els =
     let fall = [for e : string in els ->
@@ -54,6 +58,9 @@ let (*) el els =
                                 el +++ ell])
                     | _ -> el +++ e]
     String.Join(System.Environment.NewLine, fall)
+
+let (<>>) a b = sprintf "%s > %s" a b
+let (<<>) a b = sprintf "%s < %s" a b
 
 let CSS triller =
     let css =   triller

@@ -10,6 +10,7 @@ let p = "p"
 let background = "background"
 let color = "color"
 
+let marginTop = "margin-top"
 let marginBottom = "margin-bottom"
 let paddingBottom = "padding-bottom"
 
