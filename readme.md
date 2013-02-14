@@ -117,6 +117,28 @@ Target "Build" (fun () ->
                        padding -- px 0;
                        width -- auto;
                        ];
+                    (+)li ++ a <-> div<^>menu ++ ul ++ li ++ a<%>visited -|[
+                        backgroundColor -- "#465c71";
+                        border ---- [px 1; "#4e667d"; s Border.solid];
+                        color -- "#dde4ec";
+                        display -- Display.block;
+                        lineHeight -- em 1.35;
+                        padding ---- pxx [4; 20];
+                        textDecoration -- TextDecoration.none;
+                        whiteSpace -- WhiteSpace.nowrap;
+                        ]
+                    (+)li ++ a * [
+                        (%)hover-|[
+                            backgroundColor -- "#bfcbd6";
+                            color -- "#465c71";
+                            textDecoration -- TextDecoration.none;
+                            ];
+                        (%)active-|[
+                            backgroundColor -- "#465c71";
+                            color -- "#cfdbe6";
+                            textDecoration -- TextDecoration.none;
+                            ];
+                        ]
                     ];
                 ]
             ]

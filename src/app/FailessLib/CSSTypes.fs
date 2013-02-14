@@ -10,6 +10,9 @@ type TextDecoration =
 type TextAlign =
     | center = 0
 
+type WhiteSpace =
+    | nowrap = 0
+
 [<TypeConverter(typedefof<EnumToStringUsingDescription>)>]
 type FontVariant =
     | [<Description("small-caps")>] smallCaps = 0
@@ -25,3 +28,6 @@ type LineHeight =
 
 type ListStyle =
     | none = 0
+
+type Display =
+    | block = 0

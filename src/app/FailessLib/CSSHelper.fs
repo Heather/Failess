@@ -58,6 +58,7 @@ let (<^>) el p =
 let (^) a = sprintf ".%s" a
 let (+) a = sprintf " %s" a
 
+let (<->) a b = sprintf "%s, %s" a b
 let (<+>) a b = sprintf "%s+%s" a b
 let (*) el els =
     let tree str = 

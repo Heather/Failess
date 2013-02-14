@@ -20,6 +20,7 @@ let width = "width"
 let height = "height"
 let border = "border"
 
+let display = "display"
 let position = "position"
 let margin = "margin"
 let marginTop = "margin-top"
@@ -37,6 +38,8 @@ let fontFamily = "font-family"
 let fontVariant = "font-variant"
 let fontWeight = "font-weight"
 let textAlign = "text-align"
+
+let whiteSpace = "white-space"
 
 let textDecoration = "text-decoration"
 
