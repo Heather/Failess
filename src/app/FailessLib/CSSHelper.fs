@@ -6,22 +6,26 @@ open Heather.Syntax
 
 let tab = "    "
 
-let (-|) el st =
+let (@) st = 
     match st with
     | [] -> ""
-    | [ _ ] -> sprintf "%s { %s }" el st.Head
+    | [ _ ] -> sprintf " { %s }" st.Head
     | _ -> 
         let pars = 
             [for s in st -> 
                 sprintf "%s%s" 
                 <| tab
                 <| s]
-        sprintf "%s {%s%s%s%s}" 
-        <| el 
+        sprintf " {%s%s%s%s}" 
         <| System.Environment.NewLine
         <| String.Join(System.Environment.NewLine, pars)
         <| System.Environment.NewLine
         <| tab
+
+let (-|) el st =
+    sprintf "%s%s"
+    <| el
+    <| (@) st
 
 let (=|) el st =
     match el with
@@ -47,10 +51,10 @@ let (----) el st =
 let (<%>) el p =
     sprintf "%s:%s" el p
 let (%) a = sprintf ":%s" a
-
 let (<^>) el p =
     sprintf "%s.%s" el p
 let (^) a = sprintf ".%s" a
+let (+) a = sprintf " %s" a
 
 let (<+>) a b = sprintf "%s+%s" a b
 let (*) el els =
