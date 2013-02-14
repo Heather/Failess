@@ -29,11 +29,17 @@ let (=|) el st =
         | [ _ ] -> el.Head -| st
         | _ -> String.Join(", ", el) -| st
 
-let (|-) el st =
-    sprintf "%s: %s;" el st
+let (--) el st =
+    sprintf "%s: %s;"
+    <| el 
+    <| st.ToString()
 
 let (%) el p =
     sprintf "%s:%s" el p
+
+let (*) el els =
+    let fall = [for e in els -> el % e]
+    String.Join(System.Environment.NewLine, fall)
 
 let CSS triller =
     let css =   triller

@@ -9,7 +9,14 @@ let color = "color"
 
 let fontSize = "font-size"
 
+let textDecoration = "text-decoration"
 
+let active = "active"
 let hover = "hover"
 let link = "link"
 let visited = "visited"
+
+// ---------------------------------------
+
+type TextDecoration =
+    | none = 0
