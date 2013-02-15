@@ -32,7 +32,7 @@ open Heather
 Target "Build" /> fun () -> 
     trace " --- Building CSS --- "
     pasteNewLine <- false
-    CSS [
+    CSSSite [
         "/* DEFAULTS\n----------------------------------------------------------*/"
         body-|[
             background -- "#b6b7bc"

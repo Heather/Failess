@@ -80,7 +80,7 @@ let (*) el els =
 let (<>>) a b = sprintf "%s > %s" a b
 let (<<>) a b = sprintf "%s < %s" a b
 
-let CSS triller =
+let CSS file triller =
     let css =   triller
                 |> Seq.map /> fun str -> 
                     match pasteNewLine with
@@ -89,4 +89,6 @@ let CSS triller =
                                 <| System.Environment.NewLine
                                 <| s str
     System.IO.File.WriteAllLines(
-        "stie.css", css);
+        file, css);
+
+let CSSSite triller = CSS triller "stie.css"
