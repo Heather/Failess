@@ -45,9 +45,11 @@ type WhiteSpace =
         | NoWrap -> "nowrap"
 
 type Border =
+    | None
     | Solid
     override this.ToString() =
         match this with
+        | None  -> "none"
         | Solid -> "solid"
 
 type Position =

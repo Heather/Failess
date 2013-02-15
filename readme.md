@@ -21,6 +21,7 @@ FAKE File example
 -----------------
 
 ``` fsharp
+#I @"D:\nCdy\Contrib\Failess\build"
 #r @"FakeLib.dll"
 #r @"FailessLib.dll"
 #r @"Heather.dll"
@@ -29,10 +30,15 @@ open Fake
 open Failess
 open Heather
 
+type styles =
+    | Default   = 0
+    | Full      = 1
+
 Target "Build" /> fun () -> 
     trace " --- Building CSS --- "
     pasteNewLine <- false
-    CSSSite [
+    let style = styles.Full
+    CSS "D:\SVN\FlowServer2\FlowServer2.NET\FS.Web\Styles\Site.css" [
         "/* DEFAULTS\n----------------------------------------------------------*/"
         body-|[
             background -- "#b6b7bc"
@@ -87,10 +93,15 @@ Target "Build" /> fun () ->
             ]
         "/* PRIMARY LAYOUT ELEMENTS\n----------------------------------------------------------*/"
         (^)page-|[
-            width -- px 960;
+            width -- 
+                match style with
+                | styles.Full       -> prc 100
+                | _                 -> px 960
             backgroundColor -- "#fff"
             margin ----
-                [ px 20; auto; px 0; auto ]
+                match style with
+                | styles.Full       -> pxx [0; 0; 0; 0]
+                | _                 -> [ px 20; auto; px 0; auto ]
             Border.set "1px" Border.Solid "#496077"
             ]
         (^)header * [
@@ -102,6 +113,12 @@ Target "Build" /> fun () ->
                 ];
             (+)h1-|[
                 fontWeight -- 700
+                margin -- px 0
+                padding ---- pxx [0; 0; 0; 0]
+                color -- "#f9f9f9"
+                border -- Border.None
+                lineHeight -- em 2.0
+                fontSize -- em 2.0
                 ]
             ]
         (^)main-|[
