@@ -65,7 +65,7 @@ let (*) el els =
             [for line in Regex.Split(str, "\r\n") ->
                 match line with 
                 | line when line.StartsWith(tab) -> line
-                | _ -> el ++ line]
+                | _ -> el +++ line]
         String.Join(System.Environment.NewLine, lines)
     let fall = [for e : string in els ->
                     match e with

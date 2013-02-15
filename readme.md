@@ -187,7 +187,7 @@ Target "Build" /> fun () ->
             (@) [
                 margin ---- [em 1.0; px 0]
                 padding -- em 1.0
-                Border.set <| px 1 <| Border.Solid <| "#ccc"
+                Border.set "1px" Border.Solid "#ccc"
                 ]
             (+)p-|[ margin ---- pxx [2; 12; 10; 10] ]
             (^)"login"<^>"inline"-|[display -- Display.Inline]
