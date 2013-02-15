@@ -13,6 +13,7 @@ let ul = "ul"
 let il = "il"
 let li = "li"
 let input = "input"
+let img = "img"
 
 let background = "background"
 let backgroundColor = "background-color"
