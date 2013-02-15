@@ -1,34 +1,36 @@
 ﻿[<AutoOpen>]
 module Failess.CSSModules
 
+let internal (-) m p = m -- s p
+
 module Border =
-    let Set  w t c =
+    let set  w t c =
         border ---- [w; s t; c]
 
 module Float =
-    let Left = "float: left;"
-    let Right = "float: right;"
+    let left = "float: left;"
+    let right = "float: right;"
 
 module FontVariant =
-    let internal (-) p = fontVariant -- p
-    let SmallCaps = (-) "small-caps"
+    let internal (-) p = (-) fontVariant p
+    let SmallCaps = (-) FontVariant.SmallCaps
 
 module FontWeight =
     let internal (-) p = fontWeight -- s p
-    let Bold = (-) FontWeight.bold
+    let bold = (-) FontWeight.Bold
 
 module Display =
-    let internal (-) p = display -- s p
-    let Block = (-) Display.block
-    let Inline = "display: inline;"
+    let internal (-) p = (-) display p
+    let block = (-) Display.Block
+    let Inline = (-) Display.Inline
 
 module TextAlign =
-    let internal (-) p = textAlign -- s p
-    let Center = (-) TextAlign.center
-    let Left = (-) TextAlign.left
-    let Right = (-)TextAlign.right
+    let internal (-) p = (-) textAlign p
+    let center = (-) TextAlign.Center
+    let left = (-) TextAlign.Left
+    let right = (-)TextAlign.Right
 
 module Color =
-    let White   = "color: White;"
-    let Black   = "color: Black;"
-    let Red     = "color: Red;"
+    let white   = "color: white;"
+    let black   = "color: black;"
+    let red     = "color: red;"

@@ -34,7 +34,6 @@
   <ItemGroup>
     <Reference Include="FakeLib">
       <HintPath>..\..\..\FAKE\build\FakeLib.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core" />

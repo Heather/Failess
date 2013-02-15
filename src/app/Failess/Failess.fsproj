@@ -49,14 +49,10 @@
   <ItemGroup>
     <Reference Include="FakeLib">
       <HintPath>..\..\..\FAKE\build\FakeLib.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <Private>True</Private>
       <HintPath>..\..\..\FAKE\tools\FSharp\FSharp.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Heather">
-      <HintPath>..\..\..\Heather\Heather.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System" />
@@ -65,6 +61,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Heather\src\Heather.fsproj">
+      <Name>Heather</Name>
+      <Project>{f7c71087-b027-4f54-8e3d-1b1a4b4a944f}</Project>
+      <Private>True</Private>
+    </ProjectReference>
     <ProjectReference Include="..\FailessLib\FailessLib.fsproj">
       <Name>FailessLib</Name>
       <Project>{e206a7d6-5e9b-496c-a661-cd4ef23a7a01}</Project>

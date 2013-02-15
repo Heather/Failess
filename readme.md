@@ -28,7 +28,7 @@ Target "Build" /> fun () ->
                 ]
             (%)hover-|[
                 color -- "#1d60ff";
-                textDecoration -- TextDecoration.none;
+                textDecoration -- TextDecoration.None;
                 ]
             ]
         p -|[
@@ -72,10 +72,10 @@ Target "Build" /> fun () ->
             backgroundColor -- "#fff"
             margin ----
                 [ px 20; auto; px 0; auto ]
-            Border.Set <| px 1 <| Border.solid <| "#496077"
+            Border.set <| px 1 <| Border.Solid <| "#496077"
             ]
         (^)header * [
-            (@)[position -- Position.relative
+            (@)[position -- Position.Relative
                 margin -- px 0
                 padding -- px 0
                 background -- "#4b6c9e"
@@ -100,8 +100,8 @@ Target "Build" /> fun () ->
             color -- "#4e5766"
             padding ---- pxx [8; 0; 0; 0]
             margin ---- [px 0; auto]
-            textAlign -- TextAlign.center
-            lineHeight -- LineHeight.normal
+            textAlign -- TextAlign.Center
+            lineHeight -- LineHeight.Normal
             ]
         "/* TAB MENU\n----------------------------------------------------------*/"
         div * [
@@ -114,31 +114,31 @@ Target "Build" /> fun () ->
                 (@)[padding ---- pxx [4; 0; 4; 8]]
                 (+)ul * [
                     (@)[
-                       listStyle -- ListStyle.none
+                       listStyle -- ListStyle.None
                        margin -- px 0
                        padding -- px 0
                        width -- auto
                        ]
                     (+)li ++ a <-> div<^>menu ++ ul ++ li ++ a<%>visited -|[
                         backgroundColor -- "#465c71"
-                        Border.Set <| px 1 <| Border.solid <| "#4e667d"
+                        Border.set <| px 1 <| Border.Solid <| "#4e667d"
                         color -- "#dde4ec"
-                        display -- Display.block
+                        display -- Display.Block
                         lineHeight -- em 1.35
                         padding ---- pxx [4; 20]
-                        textDecoration -- TextDecoration.none
-                        whiteSpace -- WhiteSpace.nowrap
+                        textDecoration -- TextDecoration.None
+                        whiteSpace -- WhiteSpace.NoWrap
                         ]
                     (+)li ++ a * [
                         (%)hover-|[
                             backgroundColor -- "#bfcbd6"
                             color -- "#465c71"
-                            textDecoration -- TextDecoration.none
+                            textDecoration -- TextDecoration.None
                             ]
                         (%)active-|[
                             backgroundColor -- "#465c71"
                             color -- "#cfdbe6"
-                            textDecoration -- TextDecoration.none
+                            textDecoration -- TextDecoration.None
                             ]
                         ]
                     ]
@@ -149,12 +149,12 @@ Target "Build" /> fun () ->
             (@) [
                 margin ---- [em 1.0; px 0]
                 padding -- em 1.0
-                Border.Set <| px 1 <| Border.solid <| "#ccc"
+                Border.set <| px 1 <| Border.Solid <| "#ccc"
                 ]
             (+)p-|[ margin ---- pxx [2; 12; 10; 10] ]
             (^)"login"<^>"inline"-|[display -- Display.Inline]
             (^)"login" ++ label <+> (^)"register" ++ label <+> (^)"changePassword" ++ label-|[
-                display -- Display.block
+                display -- Display.Block
                 ]
             ]
         "legend"-|[
@@ -165,40 +165,40 @@ Target "Build" /> fun () ->
         input * [
             (^)"textEntry "-|[
                 width -- px 320
-                Border.Set <| px 1 <| Border.solid <| "#ccc"
+                Border.set <| px 1 <| Border.Solid <| "#ccc"
                 ]
             (^)"passwordEntry"-|[
                 width -- px 320
-                Border.Set <| px 1 <| Border.solid <| "#ccc"
+                Border.set <| px 1 <| Border.Solid <| "#ccc"
                 ]
             ]
         "/* MISC\n----------------------------------------------------------*/"
-        (^)clear-|[clear -- Clear.both]
+        (^)clear-|[clear -- Clear.Both]
         (^)title-|[
-            display -- Display.block
-            Float.Left
+            display -- Display.Block
+            Float.left
             ]
         (^)"loginDisplay" * [
             (@) [
                 fontSize -- em 1.1
-                Display.Block
-                TextAlign.Right
+                Display.block
+                TextAlign.right
                 padding -- px 10
-                Color.White
+                Color.white
                 ]
             (+)a * [
-                (%)link-|[ Color.White ]
-                (%)visited-|[ Color.White ]
-                (%)"hover"-|[ Color.White ]
+                (%)link-|[ Color.white ]
+                (%)visited-|[ Color.white ]
+                (%)"hover"-|[ Color.white ]
                 ]
             ]
         (^)"failureNotification" -|[
             fontSize -- em 1.2
-            Color.Red
+            Color.red
             ]
-        (^)"bold"-|[FontWeight.Bold]
+        (^)"bold"-|[FontWeight.bold]
         (^)"submitButton"-|[
-            TextAlign.Right
+            TextAlign.right
             paddingRight -- px 10
             ]
         ]

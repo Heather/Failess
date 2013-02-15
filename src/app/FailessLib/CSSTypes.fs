@@ -5,33 +5,73 @@ open System
 open System.ComponentModel
 
 type Clear =
-    | both = 0
+    | Both
+    override this.ToString() =
+        match this with
+        | Both -> "both"
 
 type TextDecoration =
-    | none = 0
+    | None
+    override this.ToString() =
+        match this with
+        | None -> "none"
 
 type TextAlign =
-    | center = 0
-    | left = 0
-    | right = 0
+    | Center
+    | Left
+    | Right
+    override this.ToString() =
+        match this with
+        | Center    -> "center"
+        | Left      -> "left"
+        | Right     -> "right"
 
 type FontWeight =
-    | bold = 0
+    | Bold
+    override this.ToString() =
+        match this with
+        | Bold -> "bold"
+
+type FontVariant =
+    | SmallCaps
+    override this.ToString() =
+        match this with
+        | smallCaps -> "small-caps"
 
 type WhiteSpace =
-    | nowrap = 0
+    | NoWrap
+    override this.ToString() =
+        match this with
+        | NoWrap -> "nowrap"
 
 type Border =
-    | solid = 0
+    | Solid
+    override this.ToString() =
+        match this with
+        | Solid -> "solid"
 
 type Position =
-    | relative = 0
+    | Relative
+    override this.ToString() =
+        match this with
+        | Relative -> "relative"
 
 type LineHeight =
-    | normal = 0
+    | Normal
+    override this.ToString() =
+        match this with
+        | Normal -> "normal"
 
 type ListStyle =
-    | none = 0
+    | None
+    override this.ToString() =
+        match this with
+        | None -> "none"
 
 type Display =
-    | block = 0
+    | Block
+    | Inline
+    override this.ToString() =
+        match this with
+        | Block -> "block"
+        | Inline -> "inline"
