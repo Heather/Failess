@@ -27,8 +27,8 @@ Target "Build" /> fun () ->
                 color -- "#034af3"
                 ]
             (%)hover-|[
-                color -- "#1d60ff";
-                textDecoration -- TextDecoration.None;
+                color -- "#1d60ff"
+                TextDecoration.none
                 ]
             ]
         p -|[
@@ -39,7 +39,7 @@ Target "Build" /> fun () ->
         [h1; h2; h3; h4; h5; h6]=|[
             fontSize -- em 1.5
             color -- "#666666"
-            FontVariant.SmallCaps
+            FontVariant.smallCaps
             ]
         h1-|[
             fontSize -- em 1.6
@@ -72,7 +72,7 @@ Target "Build" /> fun () ->
             backgroundColor -- "#fff"
             margin ----
                 [ px 20; auto; px 0; auto ]
-            Border.set <| px 1 <| Border.Solid <| "#496077"
+            Border.set "1px" Border.Solid "#496077"
             ]
         (^)header * [
             (@)[position -- Position.Relative
@@ -87,21 +87,21 @@ Target "Build" /> fun () ->
             ]
         (^)main-|[
             padding ---- pxx [0; 12]
-            margin ---- pxx [12; 8; 8; 8]
+            margin  ---- pxx [12; 8; 8; 8]
             minHeight -- px 420
             ]
         (^)"leftCol"-|[
             padding ---- pxx [ 6; 12]
-            margin ---- pxx [12; 8; 8; 8]
-            width -- px 200
-            minHeight -- px 200
+            margin  ---- pxx [12; 8; 8; 8]
+            width       -- px 200
+            minHeight   -- px 200
             ]
         (^)footer-|[
             color -- "#4e5766"
             padding ---- pxx [8; 0; 0; 0]
-            margin ---- [px 0; auto]
-            textAlign -- TextAlign.Center
-            lineHeight -- LineHeight.Normal
+            margin  ---- [px 0; auto]
+            textAlign   -- TextAlign.Center
+            lineHeight  -- LineHeight.Normal
             ]
         "/* TAB MENU\n----------------------------------------------------------*/"
         div * [
@@ -121,7 +121,7 @@ Target "Build" /> fun () ->
                        ]
                     (+)li ++ a <-> div<^>menu ++ ul ++ li ++ a<%>visited -|[
                         backgroundColor -- "#465c71"
-                        Border.set <| px 1 <| Border.Solid <| "#4e667d"
+                        Border.set "px1" Border.Solid "#4e667d"
                         color -- "#dde4ec"
                         display -- Display.Block
                         lineHeight -- em 1.35
@@ -162,16 +162,18 @@ Target "Build" /> fun () ->
             fontWeight -- 600
             padding ---- pxx [2; 4; 8; 4]
             ]
-        input * [
-            (^)"textEntry "-|[
-                width -- px 320
-                Border.set <| px 1 <| Border.Solid <| "#ccc"
+        Border.set "1px" Border.Solid "#ccc" 
+        |> fun borderForInput ->
+            input * [
+                (^)"textEntry "-|[
+                    width -- px 320
+                    borderForInput
+                    ]
+                (^)"passwordEntry"-|[
+                    width -- px 320
+                    borderForInput
+                    ]
                 ]
-            (^)"passwordEntry"-|[
-                width -- px 320
-                Border.set <| px 1 <| Border.Solid <| "#ccc"
-                ]
-            ]
         "/* MISC\n----------------------------------------------------------*/"
         (^)clear-|[clear -- Clear.Both]
         (^)title-|[
@@ -187,9 +189,9 @@ Target "Build" /> fun () ->
                 Color.white
                 ]
             (+)a * [
-                (%)link-|[ Color.white ]
-                (%)visited-|[ Color.white ]
-                (%)"hover"-|[ Color.white ]
+                (%)link     -|[ Color.white ]
+                (%)visited  -|[ Color.white ]
+                (%)"hover"  -|[ Color.white ]
                 ]
             ]
         (^)"failureNotification" -|[

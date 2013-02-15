@@ -13,7 +13,7 @@ module Float =
 
 module FontVariant =
     let internal (-) p = (-) fontVariant p
-    let SmallCaps = (-) FontVariant.SmallCaps
+    let smallCaps = (-) FontVariant.SmallCaps
 
 module FontWeight =
     let internal (-) p = fontWeight -- s p
@@ -29,6 +29,10 @@ module TextAlign =
     let center = (-) TextAlign.Center
     let left = (-) TextAlign.Left
     let right = (-)TextAlign.Right
+
+module TextDecoration =
+    let internal (-) p = (-) textDecoration p
+    let none = (-) TextDecoration.None
 
 module Color =
     let white   = "color: white;"
