@@ -38,6 +38,14 @@ type FontVariant =
         match this with
         | smallCaps -> "small-caps"
 
+type Float =
+    | Left
+    | Right
+    override this.ToString() =
+        match this with
+        | Left -> "left"
+        | Right -> "right"
+
 type WhiteSpace =
     | NoWrap
     override this.ToString() =

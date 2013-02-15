@@ -4,12 +4,16 @@ module Failess.CSSModules
 let internal (-) m p = m -- s p
 
 module Border =
+    let internal (-) p = (-) border p
+    let none    = (-) Border.None
+    let solid   = (-) Border.Solid
     let set  w t c =
         border ---- [w; s t; c]
 
 module Float =
-    let left = "float: left;"
-    let right = "float: right;"
+    let internal (-) p = (-) "float" p
+    let left = Float.Left
+    let right = Float.Right
 
 module FontVariant =
     let internal (-) p = (-) fontVariant p
