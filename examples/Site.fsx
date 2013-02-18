@@ -14,6 +14,16 @@ Target "Build" /> fun () ->
     trace " --- Building CSS --- "
     pasteNewLine <- false
     let style = styles.Full
+    let menuStyle = [ 
+        backgroundColor -- "#465c71"
+        Border.set "px1" Border.Solid "#4e667d"
+        color -- "#dde4ec"
+        display -- Display.Block
+        lineHeight -- em 1.35
+        padding --- pxx [4; 20]
+        textDecoration -- TextDecoration.None
+        whiteSpace -- WhiteSpace.NoWrap
+        ]
     CSS "..\Styles\Site.css" [
         "/* DEFAULTS\n--------------------------------------------*/"
         body-|[
@@ -130,17 +140,9 @@ Target "Build" /> fun () ->
                        padding -- px 0
                        width -- auto
                        ]
-                    +li ++ a & div & menu ++ ul ++ li ++ a % visited -|[ 
-                        backgroundColor -- "#465c71"
-                        Border.set "px1" Border.Solid "#4e667d"
-                        color -- "#dde4ec"
-                        display -- Display.Block
-                        lineHeight -- em 1.35
-                        padding --- pxx [4; 20]
-                        textDecoration -- TextDecoration.None
-                        whiteSpace -- WhiteSpace.NoWrap
-                        ]
-                    +li ++ a * [
+                    (+li ++ a) * [
+                        - menuStyle
+                        %visited -| menuStyle
                         %hover-|[
                             backgroundColor -- "#bfcbd6"
                             color -- "#465c71"
