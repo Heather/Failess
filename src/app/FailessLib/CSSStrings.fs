@@ -1,4 +1,4 @@
-[<AutoOpen>]
+﻿[<AutoOpen>]
 module Failess.CSSStrings
 // Some defenitions here are not anyhow standard but I don't care YET
 // Later they will be optional.
@@ -43,6 +43,8 @@ let minHeight = "min-height"
 let maxHeight = "max-height"
 let marginBottom = "margin-bottom"
 let marginTop = "margin-top"
+let marginLeft = "margin-left"
+let marginRight = "margin-right"
 let margin = "margin"
 let page = "page"
 let paddingLeft = "padding-left"

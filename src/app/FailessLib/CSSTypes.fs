@@ -2,6 +2,13 @@
 module Failess.CSSTypes
 open System
 open System.ComponentModel
+type Background =
+    | NoRepeat 
+    | Center
+    override this.ToString() =
+        match this with
+        | NoRepeat  -> "no-repeat"
+        | Center    -> "center"
 type Border =
     | None
     | Solid
