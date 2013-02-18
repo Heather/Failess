@@ -15,14 +15,14 @@ Target "Build" /> fun () ->
     pasteNewLine <- false
     let style = styles.Full
     let menuStyle = [ 
+        Display.block
         backgroundColor -- "#465c71"
+        color           -- "#dde4ec"
+        lineHeight      -- em 1.35
+        padding         --- pxx [4; 20]
+        textDecoration  -- TextDecoration.None
+        whiteSpace      -- WhiteSpace.NoWrap
         Border.set "px1" Border.Solid "#4e667d"
-        color -- "#dde4ec"
-        display -- Display.Block
-        lineHeight -- em 1.35
-        padding --- pxx [4; 20]
-        textDecoration -- TextDecoration.None
-        whiteSpace -- WhiteSpace.NoWrap
         ]
     CSS "..\Styles\Site.css" [
         "/* DEFAULTS\n--------------------------------------------*/"
@@ -34,9 +34,7 @@ Target "Build" /> fun () ->
                 "Segoe UI"; "Arial"; "Helvetica"; "Verdana"; "sans-serif";] 
             ]
         a * [
-            %visited >< %link -| [
-                color -- "#034af3"
-                ]
+            %visited >< %link @ color -- "#034af3"
             %hover -| [
                 color -- "#1d60ff"
                 TextDecoration.none
@@ -61,15 +59,9 @@ Target "Build" /> fun () ->
             fontSize -- em 1.5
             fontWeight -- 600
             ]
-        h3-|[
-            fontSize -- em 1.2
-            ]
-        h4-|[
-            fontSize -- em 1.1
-            ]
-        [h5; h6]=|[
-            fontSize -- em 1.0
-            ]
+        h3 @ fontSize -- em 1.2
+        h4 @ fontSize -- em 1.1
+        [h5; h6]=|[ fontSize -- em 1.0 ]
         "/* this rule styles <h1> and <h2> tags that are the \n first child of the left and right table %umns */"
         [   & "rightcolumn"  .> h1;
             & "rightcolumn"  .> h2;
@@ -98,23 +90,23 @@ Target "Build" /> fun () ->
                 width -- prc 100
                 ]
             +h1-|[
-                fontWeight -- 700
-                margin -- px 0
-                padding --- pxx [0; 0; 0; 0]
-                color -- "#f9f9f9"
-                border -- Border.None
-                lineHeight -- em 2.0
-                fontSize -- em 2.0
+                fontWeight  -- 700
+                margin      -- px 0
+                color       -- "#f9f9f9"
+                border      -- Border.None
+                lineHeight  -- em 2.0
+                fontSize    -- em 2.0
+                padding     --- pxx [0; 0; 0; 0]
                 ]
             ]
         &main-|[
-            padding --- pxx [0; 12]
-            margin  --- pxx [12; 8; 8; 8]
-            minHeight -- px 420
+            padding     --- pxx [0; 12]
+            margin      --- pxx [12; 8; 8; 8]
+            minHeight   -- px 420
             ]
         &"left%"-|[
-            padding --- pxx [ 6; 12]
-            margin  --- pxx [12; 8; 8; 8]
+            padding     --- pxx [ 6; 12]
+            margin      --- pxx [12; 8; 8; 8]
             width       -- px 200
             minHeight   -- px 200
             ]
@@ -131,7 +123,7 @@ Target "Build" /> fun () ->
                 backgroundColor -- "#3a4f63"
                 width -- prc 100
                 ]
-            &"accountInfo"-|[ width -- prc 42 ]
+            &"accountInfo" @ width -- prc 42
             &menu * [
                 -  [padding --- pxx [4; 0; 4; 8]]
                 +ul * [
@@ -187,29 +179,29 @@ Target "Build" /> fun () ->
                     ]
                 ]
         "/* MISC\n--------------------------------------------*/"
-        & clear-|[clear -- Clear.Both]
+        & clear @ Clear.both
         & title-|[
-            display -- Display.Block
+            Display.block
             Float.left
             ]
         & "loginDisplay" * [
-            - [ fontSize -- em 1.1
+            - [ fontSize    -- em 1.1
+                padding     -- px 10
                 Display.block
                 TextAlign.right
-                padding -- px 10
                 Color.white
                 ]
             +a * [
-                % link     -|[ Color.white ]
-                % visited  -|[ Color.white ]
-                % "hover"  -|[ Color.white ]
+                % link     @ Color.white
+                % visited  @ Color.white
+                % "hover"  @ Color.white
                 ]
             ]
         & "failureNotification" -|[
             fontSize -- em 1.2
             Color.red
             ]
-        & "bold"-|[FontWeight.bold]
+        & "bold" @ FontWeight.bold
         & "submitButton"-|[
             TextAlign.right
             paddingRight -- px 10

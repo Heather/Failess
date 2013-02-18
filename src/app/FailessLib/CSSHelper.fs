@@ -7,11 +7,13 @@ open Heather
 
 (* Not used operators:
     prefix: &&, +., -,
-    infix: @, ^, ... *)
+    infix: ^, ... *)
 
 (* if you want to use different tab size *)
 let mutable tab = "    "
 
+let inline (@) el st =
+    sprintf "%s { %s }" el st
 let inline (~-) st = 
     match st with
     | [] -> ""
