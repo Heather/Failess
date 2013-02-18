@@ -7,7 +7,7 @@ open Heather
 
 let tab = "    "
 
-let (@) st = 
+let inline (@) st = 
     match st with
     | [] -> ""
     | [ _ ] -> sprintf " { %s }" st.Head
@@ -23,43 +23,45 @@ let (@) st =
         <| System.Environment.NewLine
         <| tab
 
-let (-|) el st =
+let inline (-|) el st =
     sprintf "%s%s"
     <| el
     <| (@) st
 
-let (=|) el st =
+let inline (=|) el st =
     match el with
         | [] -> ""
         | [ _ ] -> el.Head -| st
         | _ -> String.Join(", ", el) -| st
 
-let (--) el st =
+let inline (--) el st =
     sprintf "%s: %s;"
     <| el 
     <| st.ToString()
 
-let (---) el st =
+let inline (---) el st =
     sprintf "%s: %s;"
     <| el 
     <| String.Join(", ", (st : string list))
 
-let (----) el st =
+let inline (----) el st =
     sprintf "%s: %s;"
     <| el 
     <| String.Join(" ", (st : string list))
 
-let (<%>) el p =
+let inline (<%>) el p =
     sprintf "%s:%s" el p
-let (%) a = sprintf ":%s" a
-let (<^>) el p =
-    sprintf "%s.%s" el p
-let (^) a = sprintf ".%s" a
-let (+) a = sprintf " %s" a
+let inline (%) a = sprintf ":%s" a
 
-let (<->) a b = sprintf "%s, %s" a b
-let (<+>) a b = sprintf "%s+%s" a b
-let (*) el els =
+let inline (<^>) el p =
+    sprintf "%s.%s" el p
+let inline (^) a = sprintf ".%s" a
+
+let inline (+) a = sprintf " %s" a
+
+let inline (<->) a b = sprintf "%s, %s" a b
+let inline (<+>) a b = sprintf "%s+%s" a b
+let inline (*) el els =
     let tree str = 
         let lines =
             [for line in Regex.Split(str, "\r\n") ->
@@ -77,8 +79,8 @@ let (*) el els =
                     | _ -> tree e]
     String.Join(System.Environment.NewLine, fall)
 
-let (<>>) a b = sprintf "%s > %s" a b
-let (<<>) a b = sprintf "%s < %s" a b
+let inline (<>>) a b = sprintf "%s > %s" a b
+let inline (<<>) a b = sprintf "%s < %s" a b
 
 let CSS file triller =
     let css =   triller
