@@ -91,4 +91,4 @@ let CSS file triller =
     System.IO.File.WriteAllLines(
         file, css);
 
-let CSSSite triller = CSS triller "stie.css"
+let CSSSite triller = CSS "stie.css" triller

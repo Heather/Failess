@@ -9,16 +9,16 @@ type Border =
         match this with
         | None  -> "none"
         | Solid -> "solid"
-type Clear =
-    | Both
-    override this.ToString() =
-        match this with
-        | Both -> "both"
 type Cursor =
     | Pointer
     override this.ToString() =
         match this with
         | Pointer -> "pointer"
+type Clear =
+    | Both
+    override this.ToString() =
+        match this with
+        | Both -> "both"
 type Display =
     | Block
     | Inline
@@ -26,6 +26,16 @@ type Display =
         match this with
         | Block -> "block"
         | Inline -> "inline"
+type FontWeight =
+    | Bold
+    override this.ToString() =
+        match this with
+        | Bold -> "bold"
+type FontVariant =
+    | SmallCaps
+    override this.ToString() =
+        match this with
+        | smallCaps -> "small-caps"
 type Float =
     | Left
     | Right
@@ -33,31 +43,26 @@ type Float =
         match this with
         | Left -> "left"
         | Right -> "right"
-type FontVariant =
-    | SmallCaps
-    override this.ToString() =
-        match this with
-        | smallCaps -> "small-caps"
-type FontWeight =
-    | Bold
-    override this.ToString() =
-        match this with
-        | Bold -> "bold"
-type ListStyle =
-    | None
-    override this.ToString() =
-        match this with
-        | None -> "none"
 type LineHeight =
     | Normal
     override this.ToString() =
         match this with
         | Normal -> "normal"
+type ListStyle =
+    | None
+    override this.ToString() =
+        match this with
+        | None -> "none"
 type Position =
     | Relative
     override this.ToString() =
         match this with
         | Relative -> "relative"
+type TextDecoration =
+    | None
+    override this.ToString() =
+        match this with
+        | None -> "none"
 type TextAlign =
     | Center
     | Left
@@ -67,11 +72,6 @@ type TextAlign =
         | Center    -> "center"
         | Left      -> "left"
         | Right     -> "right"
-type TextDecoration =
-    | None
-    override this.ToString() =
-        match this with
-        | None -> "none"
 type WhiteSpace =
     | NoWrap
     override this.ToString() =
