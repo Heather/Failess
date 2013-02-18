@@ -5,10 +5,14 @@ open System
 open System.Text.RegularExpressions
 open Heather
 
+(* Not used operators:
+    prefix: &&, +., -,
+    infix: @, ^, ... *)
+
 (* if you want to use different tab size *)
 let mutable tab = "    "
 
-let inline (@) st = 
+let inline (~-) st = 
     match st with
     | [] -> ""
     | [ _ ] -> sprintf " { %s }" st.Head
@@ -31,13 +35,12 @@ let inline (@) st =
 let inline (-|) el st =
     sprintf "%s%s"
     <| el
-    <| (@) st
+    <| - st
 let inline (=|) el st =
     match el with
         | [] -> ""
         | [ _ ] -> el.Head -| st
         | _ -> String.Join(", ", el) -| st
-
 let inline (--) el st =
     sprintf "%s: %s;"
     <| el 
@@ -53,20 +56,21 @@ let inline (----) el st =
 
 let inline (%) el p =
     sprintf "%s:%s" el p
-let inline col a = sprintf ":%s" a
+let inline (~%) a = sprintf ":%s" a
 
-let inline (^) el p =
+(* override here T_T *)
+let inline (&) el p =
     sprintf "%s.%s" el p
-let inline dot a = sprintf ".%s" a
+let inline (~&) a = sprintf ".%s" a
 
-let inline (+) a = sprintf " %s" a
+let inline (~+) a = sprintf " %s" a
 let inline ($) a b = sprintf "%s, %s" a b
 
 (* . operators *)
 let inline (.>) a b = sprintf "%s > %s" a b
 let inline (.<) a b = sprintf "%s < %s" a b
 
-let inline (><) a b = sprintf "%s|||%s" a b (*Weird hack*)
+let inline (><) a b = sprintf "%s*%s" a b (*Weird hack*)
 let inline (*) el els =
     let tree str = 
         let lines =
