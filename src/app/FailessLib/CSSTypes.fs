@@ -60,6 +60,11 @@ type ListStyle =
     override this.ToString() =
         match this with
         | None -> "none"
+type Overflow =
+    | Hidden
+    override this.ToString() =
+        match this with
+        | hidden -> "hidden"
 type Position =
     | Relative
     override this.ToString() =
