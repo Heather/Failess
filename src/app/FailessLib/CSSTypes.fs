@@ -14,6 +14,11 @@ type Clear =
     override this.ToString() =
         match this with
         | Both -> "both"
+type Cursor =
+    | Pointer
+    override this.ToString() =
+        match this with
+        | Pointer -> "pointer"
 type Display =
     | Block
     | Inline

@@ -23,6 +23,7 @@ let width = "width"
 let height = "height"
 let border = "border"
 
+let cursor = "cursor"
 let display = "display"
 let position = "position"
 let margin = "margin"
