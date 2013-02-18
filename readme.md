@@ -32,16 +32,27 @@ Check for examples in examples folder
 	backgroundColor -- "#fff"
 	Border.set "1px" Border.Solid "#496077"
 	]
-// Nested types:
+// Nested types & CSS variables
+let menuStyle = [ 
+	TextDecoration.none
+	WhiteSpace.noWrap
+	]
 div * [
 	&"hideSkiplink"-|[
 		backgroundColor -- "#3a4f63"
-		width 			-- prc 100
+		width -- prc 100
 		]
 	&"accountInfo"-|[ width -- prc 42 ]
 	&menu * [
-		- [padding --- pxx [4; 0; 4; 8]]
-		+ ul * [ ...
+		-  [padding --- pxx [4; 0; 4; 8]]
+		+ul * [
+			- [listStyle -- ListStyle.None
+			   margin 	-- px 0
+			   padding 	-- px 0
+			   width 	-- auto
+			   ]
+			+li ++ a * [
+				- menuStyle
 // With...:
 Border.set "1px" Border.Solid "#ccc" 
 |> fun borderForInput ->
