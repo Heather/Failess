@@ -23,7 +23,6 @@ FAKE File example
 -----------------
 
 ``` fsharp
-#I @"D:\nCdy\Contrib\Failess\build"
 #r @"FakeLib.dll"
 #r @"FailessLib.dll"
 #r @"Heather.dll"
@@ -40,20 +39,20 @@ Target "Build" /> fun () ->
     trace " --- Building CSS --- "
     pasteNewLine <- false
     let style = styles.Full
-    CSS "D:\SVN\FlowServer2\FlowServer2.NET\FS.Web\Styles\Site.css" [
-        "/* DEFAULTS\n----------------------------------------------------------*/"
+    CSS "..\Styles\Site.css" [
+        "/* DEFAULTS\n--------------------------------------------*/"
         body-|[
             background -- "#b6b7bc"
             fontSize -- em 0.80
-            fontFamily --- 
+            fontFamily ---- 
                 ["Helvetica Neue"; "Lucida Grande"; 
                 "Segoe UI"; "Arial"; "Helvetica"; "Verdana"; "sans-serif";] 
             ]
         a * [
-            (%)visited <+> (%)link-|[
+            col visited >< col link -| [
                 color -- "#034af3"
                 ]
-            (%)hover-|[
+            col hover -| [
                 color -- "#1d60ff"
                 TextDecoration.none
                 ]
@@ -62,7 +61,7 @@ Target "Build" /> fun () ->
             marginBottom -- px 10
             lineHeight -- em 1.6
             ]
-        "/* HEADINGS\n----------------------------------------------------------*/"
+        "/* HEADINGS\n--------------------------------------------*/"
         [h1; h2; h3; h4; h5; h6]=|[
             fontSize -- em 1.5
             color -- "#666666"
@@ -87,26 +86,26 @@ Target "Build" /> fun () ->
             fontSize -- em 1.0
             ]
         "/* this rule styles <h1> and <h2> tags that are the \n first child of the left and right table columns */"
-        [   (^)"rightColumn"    <>> h1;
-            (^)"rightColumn"    <>> h2;
-            (^)"leftColumn"     <>> h1;
-            (^)"leftColumn"     <>> h2]=|[
+        [   dot "rightColumn"  .> h1;
+            dot "rightColumn"  .> h2;
+            dot "leftColumn"   .> h1;
+            dot "leftColumn"   .> h2]=|[
             marginTop -- px 0
             ]
-        "/* PRIMARY LAYOUT ELEMENTS\n----------------------------------------------------------*/"
-        (^)page-|[
+        "/* PRIMARY LAYOUT ELEMENTS\n--------------------------------------------*/"
+        dot page-|[
             width -- 
                 match style with
                 | styles.Full       -> prc 100
                 | _                 -> px 960
             backgroundColor -- "#fff"
-            margin ----
+            margin ---
                 match style with
                 | styles.Full       -> pxx [0; 0; 0; 0]
                 | _                 -> [ px 20; auto; px 0; auto ]
             Border.set "1px" Border.Solid "#496077"
             ]
-        (^)header * [
+        dot header * [
             (@)[position -- Position.Relative
                 margin -- px 0
                 padding -- px 0
@@ -116,40 +115,40 @@ Target "Build" /> fun () ->
             (+)h1-|[
                 fontWeight -- 700
                 margin -- px 0
-                padding ---- pxx [0; 0; 0; 0]
+                padding --- pxx [0; 0; 0; 0]
                 color -- "#f9f9f9"
                 border -- Border.None
                 lineHeight -- em 2.0
                 fontSize -- em 2.0
                 ]
             ]
-        (^)main-|[
-            padding ---- pxx [0; 12]
-            margin  ---- pxx [12; 8; 8; 8]
+        dot main-|[
+            padding --- pxx [0; 12]
+            margin  --- pxx [12; 8; 8; 8]
             minHeight -- px 420
             ]
-        (^)"leftCol"-|[
-            padding ---- pxx [ 6; 12]
-            margin  ---- pxx [12; 8; 8; 8]
+        dot "leftCol"-|[
+            padding --- pxx [ 6; 12]
+            margin  --- pxx [12; 8; 8; 8]
             width       -- px 200
             minHeight   -- px 200
             ]
-        (^)footer-|[
+        dot footer-|[
             color -- "#4e5766"
-            padding ---- pxx [8; 0; 0; 0]
-            margin  ---- [px 0; auto]
+            padding --- pxx [8; 0; 0; 0]
+            margin  --- [px 0; auto]
             textAlign   -- TextAlign.Center
             lineHeight  -- LineHeight.Normal
             ]
-        "/* TAB MENU\n----------------------------------------------------------*/"
+        "/* TAB MENU\n--------------------------------------------*/"
         div * [
-            (^)"hideSkiplink"-|[
+            dot "hideSkiplink"-|[
                 backgroundColor -- "#3a4f63"
                 width -- prc 100
                 ]
-            (^)"accountInfo"-|[ width -- prc 42 ]
-            (^)menu * [
-                (@)[padding ---- pxx [4; 0; 4; 8]]
+            dot "accountInfo"-|[ width -- prc 42 ]
+            dot menu * [
+                (@)[padding --- pxx [4; 0; 4; 8]]
                 (+)ul * [
                     (@)[
                        listStyle -- ListStyle.None
@@ -157,23 +156,23 @@ Target "Build" /> fun () ->
                        padding -- px 0
                        width -- auto
                        ]
-                    (+)li ++ a <-> div<^>menu ++ ul ++ li ++ a<%>visited -|[
+                    (+)li ++ a $ div ^ menu ++ ul ++ li ++ a % visited -|[
                         backgroundColor -- "#465c71"
                         Border.set "px1" Border.Solid "#4e667d"
                         color -- "#dde4ec"
                         display -- Display.Block
                         lineHeight -- em 1.35
-                        padding ---- pxx [4; 20]
+                        padding --- pxx [4; 20]
                         textDecoration -- TextDecoration.None
                         whiteSpace -- WhiteSpace.NoWrap
                         ]
                     (+)li ++ a * [
-                        (%)hover-|[
+                        col hover-|[
                             backgroundColor -- "#bfcbd6"
                             color -- "#465c71"
                             textDecoration -- TextDecoration.None
                             ]
-                        (%)active-|[
+                        col active-|[
                             backgroundColor -- "#465c71"
                             color -- "#cfdbe6"
                             textDecoration -- TextDecoration.None
@@ -182,43 +181,43 @@ Target "Build" /> fun () ->
                     ]
                 ]
             ]
-        "/* FORM ELEMENTS\n----------------------------------------------------------*/"
+        "/* FORM ELEMENTS\n--------------------------------------------*/"
         "fieldset" * [
             (@) [
-                margin ---- [em 1.0; px 0]
+                margin --- [em 1.0; px 0]
                 padding -- em 1.0
-                Border.set "1px" Border.Solid "#ccc"
+                Border.set <| px 1 <| Border.Solid <| "#ccc"
                 ]
-            (+)p-|[ margin ---- pxx [2; 12; 10; 10] ]
-            (^)"login"<^>"inline"-|[display -- Display.Inline]
-            (^)"login" ++ label <+> (^)"register" ++ label <+> (^)"changePassword" ++ label-|[
+            (+)p-|[ margin --- pxx [2; 12; 10; 10] ]
+            dot "login" ^ "inline" -| [display -- Display.Inline]
+            dot "login" ++ label >< dot "register" ++ label >< dot "changePassword" ++ label-|[
                 display -- Display.Block
                 ]
             ]
         "legend"-|[
             fontSize -- em 1.1
             fontWeight -- 600
-            padding ---- pxx [2; 4; 8; 4]
+            padding --- pxx [2; 4; 8; 4]
             ]
         Border.set "1px" Border.Solid "#ccc" 
         |> fun borderForInput ->
             input * [
-                (^)"textEntry "-|[
+                dot "textEntry "-|[
                     width -- px 320
                     borderForInput
                     ]
-                (^)"passwordEntry"-|[
+                dot "passwordEntry"-|[
                     width -- px 320
                     borderForInput
                     ]
                 ]
-        "/* MISC\n----------------------------------------------------------*/"
-        (^)clear-|[clear -- Clear.Both]
-        (^)title-|[
+        "/* MISC\n--------------------------------------------*/"
+        dot clear-|[clear -- Clear.Both]
+        dot title-|[
             display -- Display.Block
             Float.left
             ]
-        (^)"loginDisplay" * [
+        dot "loginDisplay" * [
             (@) [
                 fontSize -- em 1.1
                 Display.block
@@ -227,17 +226,17 @@ Target "Build" /> fun () ->
                 Color.white
                 ]
             (+)a * [
-                (%)link     -|[ Color.white ]
-                (%)visited  -|[ Color.white ]
-                (%)"hover"  -|[ Color.white ]
+                col link     -|[ Color.white ]
+                col visited  -|[ Color.white ]
+                col "hover"  -|[ Color.white ]
                 ]
             ]
-        (^)"failureNotification" -|[
+        dot "failureNotification" -|[
             fontSize -- em 1.2
             Color.red
             ]
-        (^)"bold"-|[FontWeight.bold]
-        (^)"submitButton"-|[
+        dot "bold"-|[FontWeight.bold]
+        dot "submitButton"-|[
             TextAlign.right
             paddingRight -- px 10
             ]
