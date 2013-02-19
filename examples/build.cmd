@@ -2,7 +2,6 @@
 
 pushd .
 cd D:\...........\Failess\build\
-set ABS_PATH=%CD%
 
 :: site.css
 "Failess.exe" "D:\.......\Site.fsx"
