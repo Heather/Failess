@@ -1,3 +1,4 @@
+#I @"D:\....\Failess\build"
 #r @"FakeLib.dll"
 #r @"FailessLib.dll"
 #r @"Heather.dll"
@@ -24,7 +25,7 @@ Target "Build" /> fun () ->
         whiteSpace      -- WhiteSpace.NoWrap
         Border.set "px1" Border.Solid "#4e667d"
         ]
-    CSS "..\Styles\Site.css" [
+    CSS "D:\.........\Site.css" [
         "/* DEFAULTS\n--------------------------------------------*/"
         body-|[
             background -- "#b6b7bc"
@@ -134,7 +135,6 @@ Target "Build" /> fun () ->
                        ]
                     (+li ++ a) * [
                         - menuStyle
-                        %visited -| menuStyle
                         %hover-|[
                             backgroundColor -- "#bfcbd6"
                             color -- "#465c71"
@@ -155,16 +155,17 @@ Target "Build" /> fun () ->
                 padding -- em 1.0
                 Border.set <| px 1 <| Border.Solid <| "#ccc"
                 ]
-            + p-|[ margin --- pxx [2; 12; 10; 10] ]
-            & "login" & "inline" -| [display -- Display.Inline]
-            & "login" ++ label >< & "register" ++ label >< & "changePassword" ++ label-|[
+            + p @ margin --- pxx [2; 12; 10; 10]
+            & "login" & "inline" @ display -- Display.Inline
+            & "login" ++ label 
+                >< & "register" ++ label 
+                >< & "changePassword" ++ label @
                 display -- Display.Block
-                ]
             ]
         "legend"-|[
-            fontSize -- em 1.1
-            fontWeight -- 600
-            padding --- pxx [2; 4; 8; 4]
+            fontSize    -- em 1.1
+            fontWeight  -- 600
+            padding     --- pxx [2; 4; 8; 4]
             ]
         Border.set "1px" Border.Solid "#ccc" 
         |> fun borderForInput ->
@@ -194,7 +195,7 @@ Target "Build" /> fun () ->
             +a * [
                 % link     @ Color.white
                 % visited  @ Color.white
-                % "hover"  @ Color.white
+                % hover    @ Color.white
                 ]
             ]
         & "failureNotification" -|[
