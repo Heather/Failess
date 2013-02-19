@@ -17,5 +17,5 @@ let inline ptt vv = [for v in vv -> pt v]
 let inline px v = s v +++ "px"
 let inline pxx vv = [for v in vv -> px v]
 
-let inline rgb(r,g,b) = sprintf "rgb(%s, %s, %s)" r g b
+let inline rgb(r,g,b) = sprintf "rgb(%d, %d, %d)" r g b
 let inline url(u) = sprintf "url(%s)" u
