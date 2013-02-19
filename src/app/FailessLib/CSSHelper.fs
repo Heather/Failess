@@ -66,7 +66,9 @@ let inline (&) el p =
     sprintf "%s.%s" el p
 let inline (~&) a = sprintf ".%s" a
 
+(* this is confusing stuff must be deprecated  or replaced *)
 let inline (~+) a = sprintf " %s" a
+
 let inline ($) a b = sprintf "%s, %s" a b
 
 (* . operators *)
