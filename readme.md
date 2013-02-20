@@ -1,26 +1,5 @@
-Failess - CSS EDSL <embedded domain specific language> in F#
-============================================================
-
-Some features list (based on Clay) just to show why do I make it
-
- - FAKE integration.
- - Could be embedded in your application.
- - Highlighting as is F#.
- - Language sugar.
- - Making CSS relations with external things.
- - First class style properties.
- - First class selectors.
- - Typed values.
- - Nested style rules.
- - Access to outer scopes in nested rules.
- - Size and color arithmetics.
- - Recognizable syntax, inspired by CSS.
- - Easily extensible with new functionality.
- - Easy fall-back for uncovered parts.
- - Various options and styles.
-
-Check for examples in examples folder
--------------------------------------
+Failess FAKE integration
+========================
 
 ``` fsharp
 // Relations with external things:
