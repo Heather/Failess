@@ -4,3 +4,6 @@
 [submodule "Heather"]
 	path = Heather
 	url = git@github.com:Cynede/Heather.git
+[submodule "src/app/FailessLib"]
+	path = src/app/FailessLib
+	url = git@github.com:Cynede/FailessLib.git
