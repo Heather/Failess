@@ -1,8 +1,6 @@
 ﻿open System
 open System.IO
-
 open Fake
-open Failess
 open Heather
 
 module CommandlineParams =
@@ -23,6 +21,26 @@ module CommandlineParams =
                         else
                             arg, ""
             |> Seq.toList
+
+let FakeInit() =
+    let CcolorMap = function
+        | ImportantMessage _ -> ConsoleColor.Blue
+        | ErrorMessage _     -> ConsoleColor.Red
+        | LogMessage _       -> ConsoleColor.DarkGray
+        | TraceMessage _     -> ConsoleColor.DarkBlue
+        | FinishedMessage    -> ConsoleColor.Black
+        | _                  -> ConsoleColor.DarkGray
+
+    let CConsoleTraceListener = ConsoleTraceListener(buildServer <> CCNet,CcolorMap)
+    listeners.[0] <- CConsoleTraceListener
+
+open Failess
+
+let printVersion() =
+    traceFAKE "Failess Version: %s" failessVersion
+    traceFAKE "Failess Path: %s" fakePath
+    traceFAKE "FakeLib Version: %s" fakeVersionStr
+
 
 let printEnvironment cmdArgs args =
     printVersion()
