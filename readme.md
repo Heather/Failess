@@ -19,7 +19,7 @@ Target "Build" /> fun () ->
     CSS [
         "/* DEFAULTS\n----------------------------------------------------------*/"
 		@"/* up to date Failess example in library readme.md: 
-			https://github.com/Cynede/FailessLib */"
+			" + url( https://github.com/Cynede/FailessLib ) + " */"
         ]
 
 "Build"; RunParameterTargetOrDefault "target" "Build"
