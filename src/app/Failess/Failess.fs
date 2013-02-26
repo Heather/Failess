@@ -1,7 +1,7 @@
 ﻿open System
 open System.IO
+
 open Fake
-open Heather
 
 module CommandlineParams =
     let printAllParams() = printfn "Failess.exe [buildScript] [Target] Variable1=Value1 Variable2=Value2 ... "
@@ -9,7 +9,7 @@ module CommandlineParams =
         let splitter = [|'='|]
         cmdArgs 
             |> Seq.skip 1
-            |> Seq.mapi /> fun (i:int) (arg:string) ->
+            |> Seq.mapi(fun (i:int) (arg:string) ->
                     if arg.Contains "=" then
                         let s = arg.Split splitter
                         if s.[0] = "logfile" then
@@ -19,7 +19,7 @@ module CommandlineParams =
                         if i = 0 then
                             "Target", arg
                         else
-                            arg, ""
+                            arg, "")
             |> Seq.toList
 
 let FakeInit() =

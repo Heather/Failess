@@ -61,11 +61,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Heather\src\Heather.fsproj">
-      <Name>Heather</Name>
-      <Project>{f7c71087-b027-4f54-8e3d-1b1a4b4a944f}</Project>
-      <Private>True</Private>
-    </ProjectReference>
     <ProjectReference Include="..\FailessLib\FailessLib.fsproj">
       <Name>FailessLib</Name>
       <Project>{e206a7d6-5e9b-496c-a661-cd4ef23a7a01}</Project>
