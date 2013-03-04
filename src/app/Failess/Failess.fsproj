@@ -5,14 +5,12 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{ca923bca-c273-4744-9658-7df7001ff266}</ProjectGuid>
+    <ProjectGuid>{CA923BCA-C273-4744-9658-7DF7001FF266}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Failess</RootNamespace>
     <AssemblyName>Failess</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Name>Failess</Name>
-    <TargetFrameworkProfile />
     <FscToolPath>..\..\..\FAKE\tools\FSharp\</FscToolPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -20,7 +18,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>..\..\..\build\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>3</WarningLevel>
     <StartAction>Project</StartAction>
@@ -28,6 +26,7 @@
     </StartWorkingDirectory>
     <StartArguments>build.fsx</StartArguments>
     <PlatformTarget>x86</PlatformTarget>
+    <OtherFlags />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -50,21 +49,19 @@
     <Reference Include="FakeLib">
       <HintPath>..\..\..\FAKE\build\FakeLib.dll</HintPath>
     </Reference>
-    <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <Private>True</Private>
-      <HintPath>..\..\..\FAKE\tools\FSharp\FSharp.Core.dll</HintPath>
-    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FailessLib\FailessLib.fsproj">
       <Name>FailessLib</Name>
-      <Project>{e206a7d6-5e9b-496c-a661-cd4ef23a7a01}</Project>
-      <Private>True</Private>
+      <Project>{E206A7D6-5E9B-496C-A661-CD4EF23A7A01}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="..\..\..\FAKE\tools\FSharp\Microsoft.FSharp.Targets" />
