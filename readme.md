@@ -41,7 +41,6 @@ Some features list (based on Clay) just to show why do I make it
  - Easy fall-back for uncovered parts.
  - Various options and styles.
 
-
 ``` fsharp
 open Failess
 
@@ -69,7 +68,7 @@ let Site style =
         body-|[
             background  -- "#b6b7bc"
             fontSize    -- em 0.80
-            fontFamily  -+ 
+            fontFamily  -+
                 [   "Helvetica Neue"; 
                     "Lucida Grande"; 
                     "Segoe UI"; 
@@ -126,13 +125,13 @@ let Site style =
             Border.set "1px" Border.Solid "#496077"
             ]
         -.header << [
-            +[  Position.relative
+            +.[ Position.relative
                 margin      -- px 0
                 padding     -- px 0
                 width       -- prc 100
                 background  -- "#4b6c9e"
                 ]
-            +.h1 -| [
+            +h1 -| [
                 border      -- Border.None
                 cursor      -- Cursor.Default
                 color       -- "#f9f9f9"
@@ -171,16 +170,16 @@ let Site style =
                 ]
             -."accountInfo" @ width -- prc 42
             -.menu << [
-                +[padding -/ px4 4 0 4 8]
-                +.ul << [
-                    +[
+                +.[padding -/ px4 4 0 4 8]
+                +ul << [
+                    +.[
                         listStyle   -- ListStyle.None
                         margin      -- px 0
                         padding     -- px 0
                         width       -- auto
                         ]
-                    +.li ++ a << [
-                        +menuStyle
+                    +li ++ a << [
+                        +.menuStyle
                         %visited -| menuStyle
                         %hover-|[
                             backgroundColor -- "#bfcbd6"
@@ -198,11 +197,11 @@ let Site style =
             ]
         "/* FORM ELEMENTS\n--------------------------------------------*/"
         "fieldset" << [
-            + [ margin -/ [em 1.0; px 0]
-                padding -- em 1.0
-                Border.set <| px 1 <| Border.Solid <| "#ccc"
+            +. [    margin -/ [em 1.0; px 0]
+                    padding -- em 1.0
+                    Border.set <| px 1 <| Border.Solid <| "#ccc"
                 ]
-            +.p @ margin -/ px4 2 12 10 10
+            +p @ margin -/ px4 2 12 10 10
             -."login" -. "inline" @ display -- Display.Inline
             -."login" ++ label 
                 >< -. "register" ++ label 
@@ -235,13 +234,13 @@ let Site style =
             ]
 
         -."loginDisplay" << [
-            + [ fontSize    -- em 1.1
-                padding     -- px 10
+            +. [fontSize       -- em 1.1
+                padding        -- px 10
                 Display.block
                 TextAlign.right
                 Color.white
                 ]
-            +.a << [
+            +a << [
                 %link     @ Color.white
                 %visited  @ Color.white
                 %hover    @ Color.white
@@ -257,5 +256,6 @@ let Site style =
                                         paddingRight -- px 10
                                     ]
         ]
+
 ```
 
