@@ -5,7 +5,9 @@ F# CSS EDSL.
 
 Suggestion: There is more interesting project I suggest to use https://github.com/danfinch/fmarkup
 
-But personally I like my project more because I don't really need generate HTML and I find my code more flexible for myself.
+But personally I like my project more because I don't really need generate HTML, there is https://github.com/NemerleWeb/NemerleWeb
+
+And I find my code more flexible for myself.
 
 Fake integration:
 -----------------
