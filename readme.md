@@ -1,6 +1,10 @@
 Failess FAKE integration
 ========================
 
+F# CSS EDSL. 
+
+Suggestion: There is more interesting project I suggest to use https://github.com/danfinch/fmarkup
+
 Fake integration:
 -----------------
 
