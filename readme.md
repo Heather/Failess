@@ -19,7 +19,7 @@ Target "Build" (fun () ->
 ```
 
 The only thing this project does yet is displaying FailessLib version with Failess --version
-NOTHING MORE here, check https://github.com/Cynede/FailessLib for more. 
+NOTHING MORE here, check https://github.com/Heather/FailessLib for more. 
 
 CSS EDSL <embedded domain specific language> in F#
 ==================================================
