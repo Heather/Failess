@@ -1,13 +1,5 @@
-Failess FAKE integration
-========================
-
-F# CSS EDSL. 
-
-Suggestion: There is more interesting project I suggest to use https://github.com/danfinch/fmarkup
-
-But personally I like my project more because I don't really need generate HTML, there is https://github.com/NemerleWeb/NemerleWeb
-
-And I find my code more flexible for myself.
+Failess ( F# CSS EDSL. ) FAKE integration
+=========================================
 
 Fake integration:
 -----------------
