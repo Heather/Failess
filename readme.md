@@ -1,13 +1,5 @@
-Failess FAKE integration
-========================
-
-F# CSS EDSL. 
-
-Suggestion: There is more interesting project I suggest to use https://github.com/danfinch/fmarkup
-
-But personally I like my project more because I don't really need generate HTML, there is https://github.com/NemerleWeb/NemerleWeb
-
-And I find my code more flexible for myself.
+Failess ( F# CSS EDSL. ) FAKE integration
+=========================================
 
 Fake integration:
 -----------------
@@ -27,7 +19,7 @@ Target "Build" (fun () ->
 ```
 
 The only thing this project does yet is displaying FailessLib version with Failess --version
-NOTHING MORE here, check https://github.com/Cynede/FailessLib for more. 
+NOTHING MORE here, check https://github.com/Heather/FailessLib for more. 
 
 CSS EDSL <embedded domain specific language> in F#
 ==================================================
