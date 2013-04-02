@@ -40,12 +40,14 @@ Some features list (based on Clay) just to show why do I make it
  - Easily extensible with new functionality.
  - Easy fall-back for uncovered parts.
  - Various options and styles.
+ - Obfuscation
 
 ``` fsharp
 open Failess
 
 let Site style =
     pasteNewLine <- false
+    obfuscation  <- true
     let menuStyle = [ 
         // Modules
         Display.block
