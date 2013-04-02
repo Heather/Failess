@@ -61,7 +61,8 @@
   <ItemGroup>
     <ProjectReference Include="..\FailessLib\FailessLib.fsproj">
       <Name>FailessLib</Name>
-      <Project>{E206A7D6-5E9B-496C-A661-CD4EF23A7A01}</Project>
+      <Project>{e206a7d6-5e9b-496c-a661-cd4ef23a7a01}</Project>
+      <Private>True</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="..\..\..\FAKE\tools\FSharp\Microsoft.FSharp.Targets" />
