@@ -2,6 +2,7 @@
 open System.IO
 
 open Fake
+open Fail
 
 module CommandlineParams =
     let printAllParams() = printfn "Failess.exe [buildScript] [Target] Variable1=Value1 Variable2=Value2 ... "
@@ -12,8 +13,10 @@ module CommandlineParams =
             |> Seq.mapi(fun (i:int) (arg:string) ->
                     if arg.Contains "=" then
                         let s = arg.Split splitter
-                        if s.[0] = "logfile" then
-                            addXmlListener s.[1]
+                        match s.[0] with
+                        | "logfile" -> addXmlListener s.[1]
+                        | "FSI" -> myFsiPath <- s.[1]
+                        | _ -> ()
                         s.[0], s.[1]
                     else
                         if i = 0 then
@@ -55,7 +58,7 @@ let printEnvironment cmdArgs args =
           |> Seq.iter (tracefn "%A")
 
     log ""
-    traceFAKE "FSI-Path: %s" fsiPath
+    traceFAKE "FSI-Path: %s" myFsiPath
     traceFAKE "MSBuild-Path: %s" msBuildExe
 let containsParam param = Seq.map toLower >> Seq.exists ((=) (toLower param))  
 let buildScripts = !! "*.fsx" |> Seq.toList
@@ -68,14 +71,14 @@ try
         if containsParam "version" cmdArgs then printVersion() else
         if (cmdArgs.Length = 2 && cmdArgs.[1].ToLower() = "help") || (cmdArgs.Length = 1 && List.length buildScripts = 0) then CommandlineParams.printAllParams() else
         let buildScriptArg = if cmdArgs.Length > 1 && cmdArgs.[1].EndsWith ".fsx" then cmdArgs.[1] else Seq.head buildScripts
-        let args = CommandlineParams.parseArgs (cmdArgs |> Seq.filter ((<>) buildScriptArg) |> Seq.filter ((<>) "details"))
+        let args = CommandlineParams.parseArgs(cmdArgs |> Seq.filter ((<>) buildScriptArg) |> Seq.filter ((<>) "details"))
 
         traceStartBuild()
 
         let printDetails = true // containsParam "details" cmdArgs      
         if printDetails then 
             printEnvironment cmdArgs args
-        if not (runBuildScript printDetails buildScriptArg args) then
+        if not (go printDetails buildScriptArg args) then
             Environment.ExitCode <- 1
         else
             if printDetails then log "Ready."

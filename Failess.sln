@@ -7,6 +7,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FakeLib", "FAKE\src\app\Fak
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FailessLib", "src\app\FailessLib\FailessLib.fsproj", "{E206A7D6-5E9B-496C-A661-CD4EF23A7A01}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FailLib", "src\app\FailLib\FailLib.fsproj", "{49505BE7-ABD8-4307-A246-CCEAA3BEED83}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,16 @@ Global
 		{E206A7D6-5E9B-496C-A661-CD4EF23A7A01}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{E206A7D6-5E9B-496C-A661-CD4EF23A7A01}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E206A7D6-5E9B-496C-A661-CD4EF23A7A01}.Release|x86.ActiveCfg = Release|Any CPU
+		{49505BE7-ABD8-4307-A246-CCEAA3BEED83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49505BE7-ABD8-4307-A246-CCEAA3BEED83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49505BE7-ABD8-4307-A246-CCEAA3BEED83}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{49505BE7-ABD8-4307-A246-CCEAA3BEED83}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{49505BE7-ABD8-4307-A246-CCEAA3BEED83}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{49505BE7-ABD8-4307-A246-CCEAA3BEED83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49505BE7-ABD8-4307-A246-CCEAA3BEED83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49505BE7-ABD8-4307-A246-CCEAA3BEED83}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{49505BE7-ABD8-4307-A246-CCEAA3BEED83}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{49505BE7-ABD8-4307-A246-CCEAA3BEED83}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

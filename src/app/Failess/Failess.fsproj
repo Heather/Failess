@@ -64,6 +64,11 @@
       <Project>{e206a7d6-5e9b-496c-a661-cd4ef23a7a01}</Project>
       <Private>True</Private>
     </ProjectReference>
+    <ProjectReference Include="..\FailLib\FailLib.fsproj">
+      <Name>FailLib</Name>
+      <Project>{49505be7-abd8-4307-a246-cceaa3beed83}</Project>
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\..\..\FAKE\tools\FSharp\Microsoft.FSharp.Targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
