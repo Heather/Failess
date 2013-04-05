@@ -1,9 +1,11 @@
-﻿Failess ( F# CSS EDSL. ) FAKE integration
-=========================================
+﻿Failess ( F# CSS EDSL. ) builder
+================================
 
-Failess (FAKE runner) features:
+Failess features:
 
- - Allow to use custom FSI (for Devil extension)
+ - Using FAKE ( https://github.com/fsharp/FAKE ) backend
+ - Allow to use custom FSI=... (for Devil extension)
+ - Allows unicode with Devil extension: https://github.com/Heather/DEVIL
  - Show FailessLib version
  - Readable color scheme for light-background terminals
 
@@ -25,7 +27,7 @@ Target "Build" (fun () ->
 CSS EDSL <embedded domain specific language> in F# (actually https://github.com/Heather/FailessLib )
 ====================================================================================================
 
-Some features list (based on Clay) just to show why do I make it
+FailessLib features:
 
  - Could be embedded in your application.
  - Highlighting as is F#.
