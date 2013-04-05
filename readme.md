@@ -1,18 +1,18 @@
-Failess ( F# CSS EDSL. ) FAKE integration
+﻿Failess ( F# CSS EDSL. ) FAKE integration
 =========================================
 
 Fake integration:
------------------
 
 ``` fsharp
 #r @"FakeLib.dll"
 #r @"FailessLib.dll"
 open Fake
 open Failess
+
 Target "Build" (fun () -> 
     trace " --- Building CSS --- "
-    pasteNewLine <- false
-    CSS [
+
+    CSS "Site.css" [
         ...
         ])
 "Build"; RunParameterTargetOrDefault "target" "Build"
@@ -41,6 +41,7 @@ Some features list (based on Clay) just to show why do I make it
  - Easy fall-back for uncovered parts.
  - Various options and styles.
  - Obfuscation
+ - Devil unicode extension: https://github.com/Heather/DEVIL
 
 ``` fsharp
 open Failess
@@ -258,6 +259,5 @@ let Site style =
                                         paddingRight -- px 10
                                     ]
         ]
-
 ```
 
