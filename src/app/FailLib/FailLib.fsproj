@@ -33,7 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FakeLib">
-      <HintPath>..\..\..\build\FakeLib.dll</HintPath>
+      <HintPath>..\..\..\FAKE\build\FakeLib.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core" />
