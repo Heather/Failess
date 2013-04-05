@@ -1,7 +1,11 @@
 ﻿Failess ( F# CSS EDSL. ) FAKE integration
 =========================================
 
-Fake integration:
+Failess (FAKE runner) features:
+
+ - Allow to use custom FSI (for Devil extension)
+ - Show FailessLib version
+ - Readable color scheme for light-background terminals
 
 ``` fsharp
 #r @"FakeLib.dll"
@@ -18,11 +22,8 @@ Target "Build" (fun () ->
 "Build"; RunParameterTargetOrDefault "target" "Build"
 ```
 
-The only thing this project does yet is displaying FailessLib version with Failess --version
-NOTHING MORE here, check https://github.com/Heather/FailessLib for more. 
-
-CSS EDSL <embedded domain specific language> in F#
-==================================================
+CSS EDSL <embedded domain specific language> in F# (actually https://github.com/Heather/FailessLib )
+====================================================================================================
 
 Some features list (based on Clay) just to show why do I make it
 
