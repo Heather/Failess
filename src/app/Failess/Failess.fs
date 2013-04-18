@@ -41,7 +41,7 @@ open Failess
 
 let printVersion() =
     traceFAKE "Failess Version: %s" failessVersion
-    traceFAKE "Failess Path: %s" fakePath
+    traceFAKE "FakeLib Path: %s" fakePath
     traceFAKE "FakeLib Version: %s" fakeVersionStr
 
 
