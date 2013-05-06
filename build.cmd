@@ -1,36 +1,9 @@
 @echo off
 
-:: Environment
+cls
 SET EnableNuGetPackageRestore=true
-if %PROCESSOR_ARCHITECTURE%==x86 (
-	set MSBuild="%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\msbuild.exe"
-) else (
-	set MSBUILD=%WINDIR%\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe
-)
 
-:: Clear
-rm -rf build
-rm -rf tools
-
-rm -rf FAKE/build
-rm -rf FAKE/BuildMetrics
-rm -rf FAKE/docs
-rm -rf FAKE/nuget
-rm -rf FAKE/Publish
-rm -rf FAKE/report
-rm -rf FAKE/test
-
-rm -rf src/app/Failess/bin
-rm -rf src/app/Failess/obj
-
-rm -rf src/app/FailLib/bin
-rm -rf src/app/FailLib/obj
-
-rm -rf src/app/FailessLib/bin
-rm -rf src/app/FailessLib/obj
-
-
-:: Build
+:: Get FAKE
 pushd .
 cd ./FAKE
 set ABS_PATH=%CD%
@@ -40,10 +13,22 @@ if not exist "%ABS_PATH%\tools\FAKE\tools\Fake.exe" (
 "%ABS_PATH%\tools\FAKE\tools\Fake.exe" "build.fsx"
 popd
 
-%MSBuild% /p:Configuration=Release Failess.sln
+::F# Unicode
+if not exist "tools\Heather\tools\fsc.exe" (
+    echo Getting Custom F# Compiler with Unicode Support
+    "FAKE\tools\nuget\nuget.exe" "install" "Heather" "-OutputDirectory" "tools" "-ExcludeVersion"
+)
 
-cp "FAKE\lib\fsi\FSharp.Core.optdata" "build\FSharp.Core.optdata"
-cp "FAKE\lib\fsi\FSharp.Core.sigdata" "build\FSharp.Core.sigdata"
+::Failess - FAKE with custom FSI Support and CSS EDSL Library attached
+if not exist "tools\Failess\tools\Failess.exe" (
+    echo Getting Failess build tool with CSS EDSL library
+    "FAKE\tools\nuget\nuget.exe" "install" "Failess" "-OutputDirectory" "tools" "-ExcludeVersion"
+)
 
-echo build done
+::Env
+set c=tools\Heather\tools\
+set f=tools\Failess\tools\
+
+%f%Failess.exe FSI=%c%fsi.exe Build.fsx
+
 pause

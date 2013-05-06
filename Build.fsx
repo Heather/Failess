@@ -1,13 +1,14 @@
-#I @"tools\Failess\tools"
+﻿#I @"tools\Failess\tools"
 #r @"FakeLib.dll"
 #r @"FailessLib.dll"
 open Fake
 open Failess
 
+let inline (/>) f a = f a
+
 open System
 open System.IO
 
-let inline (/>) f a = f a
 let buildDir = @"./build"
 
 Target "Clean" /> fun () -> 
@@ -16,9 +17,9 @@ Target "Clean" /> fun () ->
     let bin = "bin"
     let obj = "obj"
     
-    let Failess = "Failess"
-    let FailLib = "FailLib"
-    let FailessLib = "FailessLib"
+    let Failess     = "Failess"
+    let FailLib     = "FailLib"
+    let FailessLib  = "FailessLib"
     
     let (/) s1 s2 = sprintf "%s/%s" s1 s2
     
@@ -26,13 +27,6 @@ Target "Clean" /> fun () ->
     CleanDirs [src/app/Failess/bin; src/app/Failess/obj]
     CleanDirs [src/app/FailLib/bin; src/app/FailLib/obj]
     CleanDirs [src/app/FailessLib/bin; src/app/FailessLib/obj]
-
-Target "FAKE" /> fun () -> 
-    let fakeFake = shellExec (  { WorkingDirectory = @"./FAKE"
-                                  Program = "build.cmd"
-                                  CommandLine = ""
-                                  Args = [] })
-    if fakeFake <> 0 then failwith "Failed to FAKE the FAKE"
     
 Target "Failess" /> fun () ->  
     MSBuildWithDefaults "Build" ["./Failess.sln"]
@@ -44,7 +38,6 @@ Target "Fin" /> fun () ->
        |> CopyTo buildDir
 
 "Clean" 
-    ==> "FAKE"
     ==> "Failess"
     ==> "Fin"
 
