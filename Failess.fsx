@@ -22,7 +22,7 @@ Target "Clean" /> fun () ->
     
     let (/) s1 s2 = sprintf "%s/%s" s1 s2
     
-    CleanDirs ["build"; "test"]
+    CleanDirs ["build"]
     CleanDirs [src/app/Failess/bin; src/app/Failess/obj]
     CleanDirs [src/app/FailLib/bin; src/app/FailLib/obj]
     CleanDirs [src/app/FailessLib/bin; src/app/FailessLib/obj]
