@@ -14,7 +14,7 @@ if not exist "%ABS_PATH%\tools\FAKE\tools\Fake.exe" (
 popd
 
 ::F# Unicode
-if not exist "tools\Heather\tools\fsc.exe" (
+if not exist "tools\Heather\tools\net40\fsc.exe" (
     echo Getting Custom F# Compiler with Unicode Support
     "FAKE\tools\nuget\nuget.exe" "install" "Heather" "-OutputDirectory" "tools" "-ExcludeVersion"
 )
@@ -26,7 +26,7 @@ if not exist "tools\Failess\tools\Failess.exe" (
 )
 
 ::Env
-set c=tools\Heather\tools\
+set c=tools\Heather\tools\net40\
 set f=tools\Failess\tools\
 
 %f%Failess.exe FSI=%c%fsi.exe Build.fsx
