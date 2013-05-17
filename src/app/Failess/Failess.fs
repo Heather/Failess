@@ -43,45 +43,49 @@ let printVersion() =
     traceFAKE "Failess Version: %s" failessVersion
     traceFAKE "FakeLib Path: %s" fakePath
     traceFAKE "FakeLib Version: %s" fakeVersionStr
-
-
+    
 let printEnvironment cmdArgs args =
     printVersion()
+
     if buildServer = LocalBuild then
         trace localBuildLabel
     else
         tracefn "Build-Version: %s" buildVersion
+
     if cmdArgs |> Array.length > 1 then
-        traceFAKE "Failess Arguments:"
+        traceFAKE "FAKE Arguments:"
         args 
           |> Seq.map fst
           |> Seq.iter (tracefn "%A")
 
     log ""
-    traceFAKE "FSI-Path: %s" myFsiPath
+    traceFAKE "FSI-Path: %s" fsiPath
     traceFAKE "MSBuild-Path: %s" msBuildExe
-let containsParam param = Seq.map toLower >> Seq.exists ((=) (toLower param))  
-let buildScripts = !! "*.fsx" |> Seq.toList
 
+let containsParam param = Seq.map toLower >> Seq.exists ((=) (toLower param))
+let buildScripts = !! "*.fsx" |> Seq.toList
 try
     FakeInit()
-    try            
-        AutoCloseXmlWriter <- true            
-        let cmdArgs = System.Environment.GetCommandLineArgs()                
-        if containsParam "version" cmdArgs then printVersion() else
-        if (cmdArgs.Length = 2 && cmdArgs.[1].ToLower() = "help") || (cmdArgs.Length = 1 && List.length buildScripts = 0) then CommandlineParams.printAllParams() else
-        let buildScriptArg = if cmdArgs.Length > 1 && cmdArgs.[1].EndsWith ".fsx" then cmdArgs.[1] else Seq.head buildScripts
-        let args = CommandlineParams.parseArgs(cmdArgs |> Seq.filter ((<>) buildScriptArg) |> Seq.filter ((<>) "details"))
-
-        traceStartBuild()
-
-        let printDetails = true // containsParam "details" cmdArgs      
-        if printDetails then 
-            printEnvironment cmdArgs args
-        if not (go printDetails buildScriptArg args) then
-            Environment.ExitCode <- 1
-        else
-            if printDetails then log "Ready."
+    try
+        AutoCloseXmlWriter <- true
+        let cmdArgs = System.Environment.GetCommandLineArgs()
+        if containsParam "--version" cmdArgs then printVersion() else
+        if (cmdArgs.Length = 2 && cmdArgs.[1].ToLower() = "--help") || (cmdArgs.Length = 1 && List.length buildScripts = 0) then CommandlineParams.printAllParams() else
+        let x = Boot.ParseCommandLine(cmdArgs)
+        match Boot.ParseCommandLine(cmdArgs) with
+        | Option.None ->
+            let buildScriptArg = if cmdArgs.Length > 1 && cmdArgs.[1].EndsWith ".fsx" then cmdArgs.[1] else Seq.head buildScripts
+            let args = CommandlineParams.parseArgs (cmdArgs |> Seq.filter ((<>) buildScriptArg) |> Seq.filter ((<>) "--details"))
+            traceStartBuild()
+            let printDetails = containsParam "--details" cmdArgs
+            if printDetails then
+                printEnvironment cmdArgs args
+            if not (runBuildScript printDetails buildScriptArg args) then
+                Environment.ExitCode <- 1
+            else
+                if printDetails then log "Ready."
+        | Some handler ->
+            handler.Interact()
     with
     | exn -> 
         if exn.InnerException <> null then
@@ -96,5 +100,6 @@ try
     if buildServer = BuildServer.TeamCity then
         killFSI()
         killMSBuild()
+
 finally
     traceEndBuild()
