@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <Name>Failess</Name>
     <FscToolPath>..\..\..\FAKE\tools\FSharp\</FscToolPath>
+    <FscToolExe>Fsc.exe</FscToolExe>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
