@@ -1,34 +1,27 @@
 @echo off
+::Env
+if %PROCESSOR_ARCHITECTURE%==x86 (
+	set MSBuild="%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\msbuild.exe"
+) else (
+	set MSBUILD=%SystemRoot%\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe
+)
 
 cls
 SET EnableNuGetPackageRestore=true
 
-:: Get FAKE
-pushd .
-cd ./FAKE
-set ABS_PATH=%CD%
-if not exist "%ABS_PATH%\tools\FAKE\tools\Fake.exe" (
-	"%ABS_PATH%\tools\nuget\nuget.exe" "install" "FAKE" "-OutputDirectory" "tools" "-ExcludeVersion" "-Prerelease"
+if not exist "tools\FAKE\tools\Fake.exe" (
+	"tools\nuget\nuget.exe" "install" "FAKE" "-OutputDirectory" "tools" "-ExcludeVersion" "-Prerelease"
 	)
-"%ABS_PATH%\tools\FAKE\tools\Fake.exe" "build.fsx"
-popd
 
-::F# Unicode
-if not exist "tools\Heather\tools\net40\fsc.exe" (
-    echo Getting Custom F# Compiler with Unicode Support
-    "FAKE\tools\nuget\nuget.exe" "install" "Heather" "-OutputDirectory" "tools" "-ExcludeVersion"
-)
+::Clean
+rm -rf build
+mkdir build
+    
+::Build
+%MSBuild% Failess.sln  /p:Configuration=Release
 
-::Failess - FAKE with custom FSI Support and CSS EDSL Library attached
-if not exist "tools\Failess\tools\Failess.exe" (
-    echo Getting Failess build tool with CSS EDSL library
-    "FAKE\tools\nuget\nuget.exe" "install" "Failess" "-OutputDirectory" "tools" "-ExcludeVersion"
-)
-
-::Env
-set c=tools\Heather\tools\net40\
-set f=tools\Failess\tools\
-
-%f%Failess.exe FSI=%c%fsi.exe Build.fsx
+::F# 3.1
+::XCOPY /E "%ProgramFiles%\Microsoft SDKs\F#\3.1\Framework\v4.0\*" "build"
+XCOPY /e "%ProgramFiles%\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.3.0.0\FSharp.Core.dll" "build"
 
 pause

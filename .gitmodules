@@ -1,6 +1,0 @@
-[submodule "FAKE"]
-	path = FAKE
-	url = git@github.com:Cynede/FAKE.git
-[submodule "src/app/FailessLib"]
-	path = src/app/FailessLib
-	url = git@github.com:Heather/FailessLib.git
