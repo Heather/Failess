@@ -21,7 +21,6 @@ mkdir build
 %MSBuild% Failess.sln  /p:Configuration=Release
 
 ::F# 3.1
-::XCOPY /E "%ProgramFiles%\Microsoft SDKs\F#\3.1\Framework\v4.0\*" "build"
 XCOPY /e "%ProgramFiles%\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.3.0.0\FSharp.Core.dll" "build"
 
 pause
