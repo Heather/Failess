@@ -51,7 +51,7 @@ fieldset << [
     ★  [    
         margin -/ [em 1.0; px 0]
         padding -- em 1.0
-        Border.set (px 1) Border.Solid "#ccc" 
+        Border.set (px 1) Solid "#ccc" 
         ]
     ☆ p @ margin -/ px4 2 12 10 10
     ⠂ "login" ++ label 
