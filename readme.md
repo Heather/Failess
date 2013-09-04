@@ -72,7 +72,7 @@ fieldset << [
         ⠅ visited  @ Color.white
         ⠅ hover    @ Color.white
         ] ]
-Border.set (px 1) Border.Solid "#ccc" |> fun ➷ ->
+Border.set (px 1) Solid "#ccc" |> fun ➷ ->
     input << [
         ⠂ "textEntry "      -|[ ➷; width -- px 320 ]
         ⠂ "passwordEntry"   -|[ ➷; width -- px 320 ]
