@@ -24,8 +24,8 @@ Target "Build" (fun () ->
 "Build"; RunParameterTargetOrDefault "target" "Build"
 ```
 
-CSS EDSL <embedded domain specific language> (actually https://github.com/Heather/FailessLib )
-----------------------------------------------------------------------------------------------
+CSS EDSL (https://github.com/Heather/FailessLib )
+-------------------------------------------------
 
 FailessLib features:
 
