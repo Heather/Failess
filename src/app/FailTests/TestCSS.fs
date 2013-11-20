@@ -1,7 +1,6 @@
 ﻿module TestCSS
 
-let css = @"
-.mleft, .mright {
+let css = @".mleft, .mright {
     min-height: 500px;
     margin-bottom: 10px;
     text-align: center;
@@ -17,41 +16,22 @@ let css = @"
 }
 .RedColored {
     background: #FF0000;
-}
-"
+}"
 
-let failess = @".mleft, .mright -| [
-            vertical-align-- central;
-            text-align-- center;
-            margin-bottom-- 10px;
-            min-height-- 500px;
+let failess = """-."mleft$" -."mright" -| [
+        "vertical-align" -- central
+        text-align -- center
+        margin-bottom --px 10
+        min-height --px 500
     ]
-.mleft -| [
-            width-- 59%;
-            float-- left;
-            vertical-align-- central;
-            text-align-- center;
-            margin-bottom-- 10px;
-            min-height-- 500px;
+-."mleft" -| [
+        width --prc 59
+        "float" -- left
     ]
-.mright -| [
-            width-- 39%;
-            float-- right;
-            width-- 59%;
-            float-- left;
-            vertical-align-- central;
-            text-align-- center;
-            margin-bottom-- 10px;
-            min-height-- 500px;
+-."mright" -| [
+        width --prc 39
+        "float" -- right
     ]
-.RedColored -| [
-            background-- #FF0000;
-            width-- 39%;
-            float-- right;
-            width-- 59%;
-            float-- left;
-            vertical-align-- central;
-            text-align-- center;
-            margin-bottom-- 10px;
-            min-height-- 500px;
-    ]"
+-."RedColored" -| [
+        background -- #FF0000
+    ]"""
