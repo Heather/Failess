@@ -1,11 +1,6 @@
 ﻿Failess ( F# CSS EDSL. ) builder
 ================================
 
-Note:
-
- - For now it's not in anyhow activie development and it's better to just use FAKE
- - well just use FAKE with `FailessLib` for this EDSL, find link somwhere below
-
 Failess features:
 
  - Using FAKE ( https://github.com/fsharp/FAKE ) backend
