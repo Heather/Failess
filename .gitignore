@@ -1,5 +1,14 @@
 /build
+/src/app/Failess/bin
 /src/app/Failess/obj
+/src/app/FailLib/bin
+/src/app/FailLib/obj
+/src/app/FailTests/bin
+/src/app/FailTests/obj
+
 /*.suo
 /*.userprefs
-/Fail.sln
+
+packages/*
+!packages/NuGet
+!packages/repositories.conig
