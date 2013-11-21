@@ -1,5 +1,8 @@
 #I @"packages/Failess/tools/"
+#I @"packages/Fuchu.0.3.0.1/lib/net40-client"
+
 #r @"FakeLib.dll"
+#r @"Gallio.dll"
 
 open Fake
 open System
@@ -30,11 +33,31 @@ Target "F# 3.1" (fun _ ->
                         File.Copy(newCore, "build\FSharp.Core.dll", true)
 )
 
-Target "FailLib Tests" (fun _ -> 
-    trace "TODO: run fuchu tests from FAKE"
-)
+(* Ideally should take result from build but don't know how *)
+#r @"Fuchu.dll"
+#r @"FailLib.dll"
+#r @"FailessLib.dll"
+module Tests =
+    open Fuchu
+    open Failess
+    open FailessTestData
+    open System.Text.RegularExpressions
+    Target "FailLib Tests" (fun _ ->
+        let convertTest = 
+            testCase "CSSConvert Test" <| 
+                fun _ -> 
+                    Assert.Equal("ToFailess"
+                        , Regex.Split( failess, "\n")
+                        , Regex.Split(( toFailess 
+                                        <| ( Array.toList  <| Regex.Split(css, "\n") )
+                                           ), System.Environment.NewLine)
+                        )
+        run convertTest |> ignore
+    )
 
 Target "Success" (fun _ -> ())
+
+open Tests
 
 "Clean"
     ==> "RestorePackages"
