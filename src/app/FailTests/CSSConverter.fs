@@ -18,4 +18,4 @@ let main argv =
     let cc = toFailess zz
     System.Console.WriteLine(cc)
     run convertTest |> ignore
-    0 // return an integer exit code
+    0
