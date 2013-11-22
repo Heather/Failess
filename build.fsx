@@ -1,8 +1,5 @@
 #I @"packages/Failess/tools/"
-#I @"packages/Fuchu.0.3.0.1/lib/net40-client"
-
 #r @"FakeLib.dll"
-#r @"Gallio.dll"
 
 open Fake
 open System
@@ -33,37 +30,21 @@ Target "F# 3.1" (fun _ ->
                         File.Copy(newCore, "build\FSharp.Core.dll", true)
 )
 
-(* Ideally should take result from build but don't know how *)
-#r @"Fuchu.dll"
-#r @"FailLib.dll"
-#r @"FailessLib.dll"
-module Tests =
-    open Fuchu
-    open Failess
-    open FailessTestData
-    open System.Text.RegularExpressions
-    Target "FailLib Tests" (fun _ ->
-        let convertTest = 
-            testCase "CSSConvert Test" <| 
-                fun _ -> 
-                    Assert.Equal("ToFailess"
-                        , Regex.Split( failess, "\n")
-                        , Regex.Split(( toFailess 
-                                        <| ( Array.toList  <| Regex.Split(css, "\n") )
-                                           ), System.Environment.NewLine)
-                        )
-        run convertTest |> ignore
-    )
-
+open System.Diagnostics
+Target "Test" (fun _ ->
+    let shellExecute program args =
+        let startInfo = new ProcessStartInfo()
+        startInfo.FileName          <- program
+        startInfo.Arguments         <- args
+        startInfo.UseShellExecute   <- false
+        let proc = Process.Start(startInfo)
+        proc.WaitForExit()
+    shellExecute @"build\FailTests.exe" ""
+)
+    
 Target "Success" (fun _ -> ())
 
-open Tests
+"BuildSolution" <== ["Clean"; "RestorePackages"]
+"Test" <== ["BuildSolution"; "F# 3.1"]
 
-"Clean"
-    ==> "RestorePackages"
-    ==> "BuildSolution"
-    ==> "F# 3.1"
-    ==> "FailLib Tests"
-    ==> "Success"
-
-RunTargetOrDefault "Success"
+RunTargetOrDefault "Test"
