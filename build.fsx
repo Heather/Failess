@@ -27,7 +27,9 @@ Target "F# 3.1" (fun _ ->
     sprintf @"%s\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.3.0.0\FSharp.Core.dll" programFiles
     |> fun newCore -> if File.Exists newCore then 
                         trace "-* Replacing 3.0 FSharp.Core.dll with 3.1 one\n"
-                        File.Copy(newCore, "build\FSharp.Core.dll", true)
+                        File.Copy(newCore, @"build\FSharp.Core.dll", true)
+    File.Copy(@"packages\Failess\tools\FSharp.Core.optdata", @"build\FSharp.Core.optdata", true)
+    File.Copy(@"packages\Failess\tools\FSharp.Core.sigdata", @"build\FSharp.Core.sigdata", true)
 )
 
 open System.Diagnostics
