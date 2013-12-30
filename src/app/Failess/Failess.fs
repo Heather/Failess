@@ -77,7 +77,7 @@ try
         let x = Boot.ParseCommandLine(cmdArgs)
         match Boot.ParseCommandLine(cmdArgs) with
         | Option.None ->
-            let buildScriptArg = if (cmdArgs.Length > 1 && cmdArgs.[1].EndsWith ".fsx" )
+            let buildScriptArg = if (cmdArgs.Length > 1 && (cmdArgs.[1].EndsWith ".fsx" || cmdArgs.[1].EndsWith ".fail" ) )
                                     then cmdArgs.[1]
                                     else if (List.length failScripts > 0)
                                             then Seq.head failScripts
