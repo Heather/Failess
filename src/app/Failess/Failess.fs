@@ -64,17 +64,24 @@ let printEnvironment cmdArgs args =
 
 let containsParam param = Seq.map toLower >> Seq.exists ((=) (toLower param))
 let buildScripts = !! "*.fsx" |> Seq.toList
+let failScripts = !! "*.fail" |> Seq.toList
 try
     FakeInit()
     try
         AutoCloseXmlWriter <- true
         let cmdArgs = System.Environment.GetCommandLineArgs()
         if containsParam "--version" cmdArgs then printVersion() else
-        if (cmdArgs.Length = 2 && cmdArgs.[1].ToLower() = "--help") || (cmdArgs.Length = 1 && List.length buildScripts = 0) then CommandlineParams.printAllParams() else
+        if     (cmdArgs.Length = 2 && cmdArgs.[1].ToLower() = "--help")
+            || (cmdArgs.Length = 1 && List.length buildScripts = 0)
+            || (cmdArgs.Length = 1 && List.length failScripts = 0) then CommandlineParams.printAllParams() else
         let x = Boot.ParseCommandLine(cmdArgs)
         match Boot.ParseCommandLine(cmdArgs) with
         | Option.None ->
-            let buildScriptArg = if cmdArgs.Length > 1 && cmdArgs.[1].EndsWith ".fsx" then cmdArgs.[1] else Seq.head buildScripts
+            let buildScriptArg = if (cmdArgs.Length > 1 && cmdArgs.[1].EndsWith ".fsx" )
+                                    then cmdArgs.[1]
+                                    else if (List.length failScripts > 0)
+                                            then Seq.head failScripts
+                                            else Seq.head buildScripts
             let args = CommandlineParams.parseArgs (cmdArgs |> Seq.filter ((<>) buildScriptArg) |> Seq.filter ((<>) "--details"))
             traceStartBuild()
             let printDetails = containsParam "--details" cmdArgs
