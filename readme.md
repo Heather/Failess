@@ -10,18 +10,23 @@ Failess features:
  - Readable color scheme for light-background terminals
 
 ``` fsharp
-#r @"FakeLib.dll"
-#r @"FailessLib.dll"
 open Fake
 open Failess
 
-Target "Build" (fun () -> 
-    trace " --- Building CSS --- "
+Target "custom.css" (fun () -> 
+    CSS ("..\css\custom.css") [
+        code @ Color.black
+        "/* When highlighted code blocks are too wide, they wrap. Resulting in the */"
+        "/* line numbers column's rows not lining up with the code rows. Prevent */"
+        "/* wrapping. */"
+        pre -|[
+            whiteSpace  -- pre
+            width       -- inh
+        ]
+    ]
+); "custom.css"
 
-    CSS "Site.css" [
-        ...
-        ])
-"Build"; RunParameterTargetOrDefault "target" "Build"
+RunParameterTargetOrDefault "target" "custom.css"
 ```
 
 CSS EDSL (https://github.com/Heather/FailessLib )
