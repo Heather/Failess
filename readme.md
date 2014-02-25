@@ -1,6 +1,8 @@
 ﻿Failess ( F# CSS EDSL. ) builder
 ================================
 
+[![Build Status](https://travis-ci.org/Heather/Failess.png?branch=master)](https://travis-ci.org/Heather/Failess)
+
 Failess features:
 
  - Using FAKE ( https://github.com/fsharp/FAKE ) backend
