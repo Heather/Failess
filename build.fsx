@@ -1,7 +1,3 @@
-#light (*
-	exec fsharpi --exec $0 $@
-*)
-
 #I @"packages/Failess/tools/"
 #r @"FakeLib.dll"
 

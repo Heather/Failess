@@ -11,6 +11,5 @@ before_install:
  - sudo installer -pkg "MonoFramework-MDK-${MONO_VERSION}.macos10.xamarin.x86.pkg" -target /
 
 script:
- - sudo chmod 777 build.fsx
- - cp -f packages/Failess/tools/FakeLib.dll .
- - ./build.fsx
+ - sudo mono packages\nuget\nuget.exe install Failess -OutputDirectory packages -ExcludeVersion -Prerelease
+ - sudo mono packages\Failess\tools\Failess.exe "build.fsx"
