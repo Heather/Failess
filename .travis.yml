@@ -11,4 +11,5 @@ before_install:
  - sudo installer -pkg "MonoFramework-MDK-${MONO_VERSION}.macos10.xamarin.x86.pkg" -target /
 
 script:
+ - sudo chmod 777 build.fsx
  - ./build.fsx
