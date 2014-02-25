@@ -1,3 +1,8 @@
+#if run_with_bin_sh 
+  # See why this works at http://stackoverflow.com/a/21948918/637783 
+  exec fsharpi --exec $0 $*
+#endif
+
 #I @"packages/Failess/tools/"
 #r @"FakeLib.dll"
 
