@@ -12,4 +12,5 @@ before_install:
 
 script:
  - sudo chmod 777 build.fsx
+ - cp -f packages/Failess/tools/FakeLib.dll .
  - ./build.fsx
