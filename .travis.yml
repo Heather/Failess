@@ -12,5 +12,6 @@ before_install:
  - mozroots --import --sync
 
 script:
- - mono "packages\\NuGet\\NuGet.exe" install Failess -OutputDirectory packages -ExcludeVersion -Prerelease
- - mono "packages\\Failess\\tools\\Failess.exe" "build.fsx"
+ - sudo chmod +x packages/NuGet/NuGet.exe
+ - mono "packages/NuGet/NuGet.exe" install Failess -OutputDirectory packages -ExcludeVersion -Prerelease
+ - mono "packages/Failess/tools/Failess.exe" "build.fsx"

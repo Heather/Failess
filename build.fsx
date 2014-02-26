@@ -18,20 +18,6 @@ Target "BuildSolution" (fun _ ->
     |> Log "AppBuild-Output: "
 )
 
-Target "F# 3.1" (fun _ -> 
-    let programFiles = 
-        if (IntPtr.Size = 4)
-            then Environment.GetEnvironmentVariable("ProgramFiles")
-            else Environment.GetEnvironmentVariable("ProgramFiles(x86)")
-    (* Moving from F# 3.0 to F# 3.1 is hard... *)
-    sprintf @"%s\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\4.3.0.0\FSharp.Core.dll" programFiles
-    |> fun newCore -> if File.Exists newCore then 
-                        trace "-* Replacing 3.0 FSharp.Core.dll with 3.1 one\n"
-                        File.Copy(newCore, @"build\FSharp.Core.dll", true)
-    File.Copy(@"packages\Failess\tools\FSharp.Core.optdata", @"build\FSharp.Core.optdata", true)
-    File.Copy(@"packages\Failess\tools\FSharp.Core.sigdata", @"build\FSharp.Core.sigdata", true)
-)
-
 open System.Diagnostics
 Target "Test" (fun _ ->
     let shellExecute program args =
@@ -47,6 +33,6 @@ Target "Test" (fun _ ->
 Target "Success" (fun _ -> ())
 
 "BuildSolution" <== ["Clean"; "RestorePackages"]
-"Test" <== ["BuildSolution"; "F# 3.1"]
+"Test" <== ["BuildSolution"]
 
 RunTargetOrDefault "Test"
