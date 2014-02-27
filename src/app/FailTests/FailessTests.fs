@@ -8,11 +8,13 @@ open System.Text.RegularExpressions
 let convertTest = 
     testCase "CSSConvert Test" <| 
         fun _ -> 
+            let actual = toFailess <| ( Array.toList  
+                                      <| Regex.Split
+                                          (css, System.Environment.NewLine))
+            "Actual : " + actual |> System.Console.WriteLine
             Assert.Equal("ToFailess"
                 , failess
-                , toFailess <| 
-                    ( Array.toList  
-                        <| Regex.Split(css, System.Environment.NewLine))
+                , actual
                 )
 
 [<EntryPoint>]
