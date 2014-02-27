@@ -27,9 +27,11 @@ Target "Test" (fun _ ->
         startInfo.UseShellExecute   <- false
         let proc = Process.Start(startInfo)
         proc.WaitForExit()
-    shellExecute @"build\FailTests.exe" ""
+    shellExecute if isLinux 
+                    then @"mono" "build\FailTests.exe"
+                    else @"build\FailTests.exe" ""
 )
-    
+
 Target "Success" (fun _ -> ())
 
 "BuildSolution" <== ["Clean"; "RestorePackages"]
