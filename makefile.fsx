@@ -28,7 +28,7 @@ Target "Test" (fun _ ->
         let proc = Process.Start(startInfo)
         proc.WaitForExit()
     if isLinux
-        then shellExecute @"mono" @"build\FailTests.exe"
+        then shellExecute @"mono" @"build/FailTests.exe"
         else shellExecute @"build\FailTests.exe" ""
 )
 
