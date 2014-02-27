@@ -10,5 +10,4 @@
 /*.userprefs
 
 packages/*
-!packages/NuGet
-!packages/repositories.conig
+!packages/repositories.config
