@@ -50,7 +50,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FailessTestData.fs" />
     <Compile Include="FailessTests.fs" />
   </ItemGroup>
   <ItemGroup>
