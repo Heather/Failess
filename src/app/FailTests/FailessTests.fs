@@ -1,10 +1,6 @@
-﻿open FailessTestData
-
-open System
-
+﻿open System
 open Fuchu
 open Failess
-open FailessTestData
 open System.Text.RegularExpressions
 
 let tests = 
@@ -28,14 +24,6 @@ let tests =
                             true
                         with | _ -> false)
                     , true)
-        testCase "CSSConvert Test" <| 
-            fun _ -> 
-                let actual = toFailess <| ( Array.toList
-                                       <|   Regex.Split(css, System.Environment.NewLine))
-                Assert.Equal("ToFailess"
-                    , failess
-                    , actual
-                    )
         ]
 
 [<EntryPoint>]
